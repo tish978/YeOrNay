@@ -17,6 +17,7 @@
 		670577AD265F46E400701A29 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 670577AB265F46E400701A29 /* LaunchScreen.storyboard */; };
 		670577B8265F46E400701A29 /* YeOrNayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 670577B7265F46E400701A29 /* YeOrNayTests.swift */; };
 		670577C3265F46E400701A29 /* YeOrNayUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 670577C2265F46E400701A29 /* YeOrNayUITests.swift */; };
+		67FF955326608E5C009175FA /* stretchMyHands.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 67FF955226608E5C009175FA /* stretchMyHands.mp3 */; };
 		D6E99734FDE7E614F856585F /* Pods_YeOrNayTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B684887B16842F0ED84D968 /* Pods_YeOrNayTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -56,6 +57,7 @@
 		670577BE265F46E400701A29 /* YeOrNayUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YeOrNayUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		670577C2265F46E400701A29 /* YeOrNayUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YeOrNayUITests.swift; sourceTree = "<group>"; };
 		670577C4265F46E400701A29 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		67FF955226608E5C009175FA /* stretchMyHands.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = stretchMyHands.mp3; sourceTree = "<group>"; };
 		7167D3E1A9FE85B0F0906E43 /* Pods-YeOrNay-YeOrNayUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YeOrNay-YeOrNayUITests.release.xcconfig"; path = "Target Support Files/Pods-YeOrNay-YeOrNayUITests/Pods-YeOrNay-YeOrNayUITests.release.xcconfig"; sourceTree = "<group>"; };
 		792B3A585F71C84C822AB1EE /* Pods-YeOrNayTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YeOrNayTests.release.xcconfig"; path = "Target Support Files/Pods-YeOrNayTests/Pods-YeOrNayTests.release.xcconfig"; sourceTree = "<group>"; };
 		8C0491A4CD73B762DB6BE0E8 /* Pods-YeOrNay.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YeOrNay.debug.xcconfig"; path = "Target Support Files/Pods-YeOrNay/Pods-YeOrNay.debug.xcconfig"; sourceTree = "<group>"; };
@@ -126,6 +128,7 @@
 		6705779F265F46E200701A29 /* YeOrNay */ = {
 			isa = PBXGroup;
 			children = (
+				67FF955226608E5C009175FA /* stretchMyHands.mp3 */,
 				670577A0265F46E200701A29 /* AppDelegate.swift */,
 				670577A2265F46E200701A29 /* SceneDelegate.swift */,
 				670577A4265F46E200701A29 /* ViewController.swift */,
@@ -275,6 +278,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				670577AD265F46E400701A29 /* LaunchScreen.storyboard in Resources */,
+				67FF955326608E5C009175FA /* stretchMyHands.mp3 in Resources */,
 				670577AA265F46E400701A29 /* Assets.xcassets in Resources */,
 				670577A8265F46E200701A29 /* Main.storyboard in Resources */,
 			);
