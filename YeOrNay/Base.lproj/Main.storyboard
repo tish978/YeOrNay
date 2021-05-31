@@ -38,6 +38,21 @@
             </objects>
             <point key="canvasLocation" x="140.57971014492756" y="103.79464285714285"/>
         </scene>
+        <!--Game BoardVC-->
+        <scene sceneID="fsP-CO-ayX">
+            <objects>
+                <viewController storyboardIdentifier="gameBoardVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="RF9-I3-g1U" customClass="gameBoardVC" customModule="YeOrNay" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="7iZ-y1-VKA">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="P9g-aY-ncV"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZEc-cf-5qZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1129" y="124"/>
+        </scene>
     </scenes>
     <resources>
         <image name="YeOrNayLogo" width="200" height="200"/>
