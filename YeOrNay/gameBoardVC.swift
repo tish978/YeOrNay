@@ -9,6 +9,7 @@ import Foundation
 
 class gameBoardVC: UIViewController {
 
+    var newString: String?
     var kanyeQuotes: [String] = ["2024",
                                  "All you have to be is yourself",
                                  "Believe in your flyness...conquer your shyness.",
@@ -157,6 +158,18 @@ class gameBoardVC: UIViewController {
         return lbl
     }()
     
+    let cardTwoLbl: UILabel = {
+        let lbl = UILabel(frame: CGRect(x: 75, y: 100, width: 275, height: 200))
+        lbl.translatesAutoresizingMaskIntoConstraints = false
+        lbl.center = CGPoint(x: 300, y: 285)
+        lbl.textAlignment = .center
+        lbl.text = "EMPTY TEXT"
+        lbl.font = UIFont(name: "Aquino-Demo", size: 12)
+        lbl.numberOfLines = 6
+        lbl.lineBreakMode = .byWordWrapping
+        lbl.textColor = #colorLiteral(red: 0, green: 0.9768045545, blue: 0, alpha: 1)
+        return lbl
+    }()
     
     let cardTwo: UIButton = {
         let v = UIButton(frame: CGRect(x: 0, y: 100, width: 350, height: 250))
@@ -180,12 +193,14 @@ class gameBoardVC: UIViewController {
         super.viewDidLoad()
         
         printQuote(label: cardOneLbl)
+        generateRandomQuote(label: cardTwoLbl)
         
         cardOne.addTarget(self, action: #selector(cardOneFlip), for: .touchUpInside)
         cardTwo.addTarget(self, action: #selector(cardTwoFlip), for: .touchUpInside)
         view.addSubview(cardOne)
         view.addSubview(cardTwo)
         view.addSubview(cardOneLbl)
+        view.addSubview(cardTwoLbl)
         
         
         cardOne.topAnchor.constraint(equalTo: view.topAnchor, constant: 100).isActive = true
@@ -203,6 +218,41 @@ class gameBoardVC: UIViewController {
         cardTwo.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 30).isActive = true
         cardTwo.heightAnchor.constraint(equalToConstant: 250).isActive = true
         cardTwo.widthAnchor.constraint(equalToConstant: 350).isActive = true
+        
+        cardTwoLbl.topAnchor.constraint(equalTo: view.topAnchor, constant: 375).isActive = true
+        cardTwoLbl.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 30).isActive = true
+        cardTwoLbl.heightAnchor.constraint(equalToConstant: 250).isActive = true
+        cardTwoLbl.widthAnchor.constraint(equalToConstant: 350).isActive = true
+    }
+    
+    func generateRandomQuote(label: UILabel){
+ 
+        let url = URL(string: "https://api.quotable.io/random")!
+        
+        let task = URLSession.shared.dataTask(with: url, completionHandler: { data, reponse, error in
+ 
+            guard let data = data, error == nil else {
+                print("Something went wrong")
+                return
+            }
+            
+            var result: MyResult?
+            do{
+                result = try JSONDecoder().decode(MyResult.self, from: data)
+            } catch {
+                print("failed to convert \(error.localizedDescription)")
+            }
+
+            guard let json = result else {
+                return
+            }
+
+            print(json.content)
+            //label.text = json.content
+        })
+        
+        task.resume()
+        
     }
     
     func printQuote(label: UILabel){
@@ -230,4 +280,13 @@ class gameBoardVC: UIViewController {
         gradient.frame = cardOne.bounds
         cardTwo.layer.addSublayer(gradient)
     }
+}
+
+struct MyResult: Codable{
+    let _id: String
+    let tags: [String]
+    let content: String
+    let author: String
+    let authorSlug: String
+    let length: Int
 }
