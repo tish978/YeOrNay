@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -19,6 +19,7 @@
 		670577C3265F46E400701A29 /* YeOrNayUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 670577C2265F46E400701A29 /* YeOrNayUITests.swift */; };
 		671F7E75266560FE00B7D4EE /* gameBoardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 671F7E74266560FE00B7D4EE /* gameBoardVC.swift */; };
 		671F7E7A2665632500B7D4EE /* Aquino-Demo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 671F7E792665632500B7D4EE /* Aquino-Demo.ttf */; };
+		671F7E8026670F4500B7D4EE /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = 671F7E7F26670F4500B7D4EE /* SwiftPackageProductDependency */; };
 		67FF955326608E5C009175FA /* stretchMyHands.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 67FF955226608E5C009175FA /* stretchMyHands.mp3 */; };
 		D6E99734FDE7E614F856585F /* Pods_YeOrNayTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B684887B16842F0ED84D968 /* Pods_YeOrNayTests.framework */; };
 /* End PBXBuildFile section */
@@ -74,6 +75,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				671F7E8026670F4500B7D4EE /* BuildFile in Frameworks */,
 				3B479772FDD32FEC4F4EF1CA /* Pods_YeOrNay.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -188,12 +190,16 @@
 				67057799265F46E200701A29 /* Sources */,
 				6705779A265F46E200701A29 /* Frameworks */,
 				6705779B265F46E200701A29 /* Resources */,
+				BA46F3EA82076CA6E8A51BAE /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = YeOrNay;
+			packageProductDependencies = (
+				671F7E7F26670F4500B7D4EE /* SwiftPackageProductDependency */,
+			);
 			productName = YeOrNay;
 			productReference = 6705779D265F46E200701A29 /* YeOrNay.app */;
 			productType = "com.apple.product-type.application";
@@ -225,6 +231,7 @@
 				670577BA265F46E400701A29 /* Sources */,
 				670577BB265F46E400701A29 /* Frameworks */,
 				670577BC265F46E400701A29 /* Resources */,
+				D6981E45F24B55600F85AAD7 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -267,6 +274,9 @@
 				Base,
 			);
 			mainGroup = 67057794265F46E200701A29;
+			packageReferences = (
+				671F7E7E26670F4500B7D4EE /* RemoteSwiftPackageReference */,
+			);
 			productRefGroup = 6705779E265F46E200701A29 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -350,6 +360,40 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BA46F3EA82076CA6E8A51BAE /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-YeOrNay/Pods-YeOrNay-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-YeOrNay/Pods-YeOrNay-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-YeOrNay/Pods-YeOrNay-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D6981E45F24B55600F85AAD7 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-YeOrNay-YeOrNayUITests/Pods-YeOrNay-YeOrNayUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-YeOrNay-YeOrNayUITests/Pods-YeOrNay-YeOrNayUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-YeOrNay-YeOrNayUITests/Pods-YeOrNay-YeOrNayUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		DD12BD80EEFE119DF1010361 /* [CP] Check Pods Manifest.lock */ = {
@@ -723,6 +767,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		671F7E7E26670F4500B7D4EE /* RemoteSwiftPackageReference */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/lukaskubanek/LoremSwiftum";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.2.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		671F7E7F26670F4500B7D4EE /* SwiftPackageProductDependency */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 671F7E7E26670F4500B7D4EE /* RemoteSwiftPackageReference */;
+			productName = LoremSwiftum;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 67057795265F46E200701A29 /* Project object */;
 }

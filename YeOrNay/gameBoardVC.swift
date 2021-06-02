@@ -6,10 +6,13 @@
 //
 import UIKit
 import Foundation
+import LoremSwiftum
+import BlaBlaBla
 
 class gameBoardVC: UIViewController {
 
     var newString: String?
+    var toBeReturned: String = ""
     var kanyeQuotes: [String] = ["2024",
                                  "All you have to be is yourself",
                                  "Believe in your flyness...conquer your shyness.",
@@ -193,7 +196,7 @@ class gameBoardVC: UIViewController {
         super.viewDidLoad()
         
         printQuote(label: cardOneLbl)
-        generateRandomQuote(label: cardTwoLbl)
+        
         
         cardOne.addTarget(self, action: #selector(cardOneFlip), for: .touchUpInside)
         cardTwo.addTarget(self, action: #selector(cardTwoFlip), for: .touchUpInside)
@@ -223,10 +226,14 @@ class gameBoardVC: UIViewController {
         cardTwoLbl.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 30).isActive = true
         cardTwoLbl.heightAnchor.constraint(equalToConstant: 250).isActive = true
         cardTwoLbl.widthAnchor.constraint(equalToConstant: 350).isActive = true
+        
+       // generateRandomQuote(label: cardTwoLbl)
+        cardTwoLbl.text = EnSentenceGenerator.random()
     }
     
     func generateRandomQuote(label: UILabel){
- 
+        //var toBeReturned: String = ""
+        
         let url = URL(string: "https://api.quotable.io/random")!
         
         let task = URLSession.shared.dataTask(with: url, completionHandler: { data, reponse, error in
@@ -247,12 +254,24 @@ class gameBoardVC: UIViewController {
                 return
             }
 
-            print(json.content)
-            //label.text = json.content
+            //print(json.content)
+            print("Quote to be sent: \(result?.content)")
+            self.toBeReturned = (result?.content as String?)!
+            print(self.toBeReturned)
+            
+            label.text = self.toBeReturned
+            
+            //self.setText(label: self.cardTwoLbl, text: result!.content)
+            
         })
-        
+    
         task.resume()
         
+    }
+    
+    func setText(label: UILabel, text: String){
+        label.text = text
+        print("Just set \(text) as the text value for \(label)")
     }
     
     func printQuote(label: UILabel){
