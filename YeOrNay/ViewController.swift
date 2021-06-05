@@ -65,7 +65,7 @@ class ViewController: UIViewController {
     @objc private func segueToBoard(){
         print("Performing segue!")
        // self.performSegue(withIdentifier: "TMBoard", sender: nil)
-        player?.stop()
+        //player?.stop()
         let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
 
         let nextViewController = storyBoard.instantiateViewController(withIdentifier: "gameBoardVC") as! gameBoardVC

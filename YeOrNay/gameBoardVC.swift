@@ -12,7 +12,9 @@ import BlaBlaBla
 class gameBoardVC: UIViewController {
 
     var newString: String?
+    var score: Int = 0
     var toBeReturned: String = ""
+    var isYe: Bool = false
     var kanyeQuotes: [String] = ["2024",
                                  "All you have to be is yourself",
                                  "Believe in your flyness...conquer your shyness.",
@@ -166,11 +168,12 @@ class gameBoardVC: UIViewController {
         lbl.translatesAutoresizingMaskIntoConstraints = false
         lbl.center = CGPoint(x: 300, y: 285)
         lbl.textAlignment = .center
-        lbl.text = "EMPTY TEXT"
+        lbl.text = "NEXT QUESTION"
         lbl.font = UIFont(name: "Aquino-Demo", size: 12)
         lbl.numberOfLines = 6
         lbl.lineBreakMode = .byWordWrapping
         lbl.textColor = #colorLiteral(red: 0, green: 0.9768045545, blue: 0, alpha: 1)
+        lbl.isHidden = true
         return lbl
     }()
     
@@ -187,9 +190,84 @@ class gameBoardVC: UIViewController {
         v.layer.addSublayer(gradient)
         v.clipsToBounds = true
         v.layer.cornerRadius = 12
+        v.isHidden = true
+        v.isUserInteractionEnabled = true
+        return v
+    }()
+    
+    let yeButton: UIButton = {
+        let v = UIButton(frame: CGRect(x: 0, y: 100, width: 160, height: 150))
+        v.translatesAutoresizingMaskIntoConstraints = false
+        v.layer.borderColor = #colorLiteral(red: 0.9764705882, green: 0.9647058824, blue: 0.9764705882, alpha: 1)
+        v.layer.borderWidth = 2
+        let gradient = CAGradientLayer()
+        gradient.colors = [UIColor.green.cgColor, UIColor.yellow.cgColor]
+        gradient.startPoint = CGPoint(x: 0.0, y: 0.0)
+        gradient.endPoint = CGPoint(x: 0.75, y: 0.25)
+        gradient.frame = v.bounds
+        v.layer.addSublayer(gradient)
+        v.clipsToBounds = true
+        v.layer.cornerRadius = 12
         v.isHidden = false
         v.isUserInteractionEnabled = true
         return v
+    }()
+    
+    let yeLbl: UILabel = {
+        let lbl = UILabel(frame: CGRect(x: 75, y: 100, width: 275, height: 200))
+        lbl.translatesAutoresizingMaskIntoConstraints = false
+        lbl.center = CGPoint(x: 300, y: 285)
+        lbl.textAlignment = .center
+        lbl.text = "YE"
+        lbl.font = UIFont(name: "Aquino-Demo", size: 25)
+        lbl.numberOfLines = 6
+        lbl.lineBreakMode = .byWordWrapping
+        lbl.textColor = #colorLiteral(red: 0.3647058904, green: 0.06666667014, blue: 0.9686274529, alpha: 1)
+        return lbl
+    }()
+    
+    let nayButton: UIButton = {
+        let v = UIButton(frame: CGRect(x: 0, y: 100, width: 160, height: 150))
+        v.translatesAutoresizingMaskIntoConstraints = false
+        v.layer.borderColor = #colorLiteral(red: 0.9764705882, green: 0.9647058824, blue: 0.9764705882, alpha: 1)
+        v.layer.borderWidth = 2
+        let gradient = CAGradientLayer()
+        gradient.colors = [UIColor.orange.cgColor, UIColor.red.cgColor]
+        gradient.startPoint = CGPoint(x: 0.0, y: 0.0)
+        gradient.endPoint = CGPoint(x: 0.75, y: 0.25)
+        gradient.frame = v.bounds
+        v.layer.addSublayer(gradient)
+        v.clipsToBounds = true
+        v.layer.cornerRadius = 12
+        v.isHidden = false
+        v.isUserInteractionEnabled = true
+        return v
+    }()
+    
+    let nayLbl: UILabel = {
+        let lbl = UILabel(frame: CGRect(x: 75, y: 100, width: 275, height: 200))
+        lbl.translatesAutoresizingMaskIntoConstraints = false
+        lbl.center = CGPoint(x: 300, y: 285)
+        lbl.textAlignment = .center
+        lbl.text = "NAY"
+        lbl.font = UIFont(name: "Aquino-Demo", size: 25)
+        lbl.numberOfLines = 6
+        lbl.lineBreakMode = .byWordWrapping
+        lbl.textColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        return lbl
+    }()
+    
+    let scoreLbl: UILabel = {
+        let lbl = UILabel(frame: CGRect(x: 75, y: 100, width: 275, height: 200))
+        lbl.translatesAutoresizingMaskIntoConstraints = false
+        lbl.center = CGPoint(x: 300, y: 285)
+        lbl.textAlignment = .center
+        lbl.text = "SCORE"
+        lbl.font = UIFont(name: "Aquino-Demo", size: 25)
+        lbl.numberOfLines = 6
+        lbl.lineBreakMode = .byWordWrapping
+        lbl.textColor = #colorLiteral(red: 0.05882352963, green: 0.180392161, blue: 0.2470588237, alpha: 1)
+        return lbl
     }()
     
     override func viewDidLoad() {
@@ -201,9 +279,16 @@ class gameBoardVC: UIViewController {
         cardOne.addTarget(self, action: #selector(cardOneFlip), for: .touchUpInside)
         cardTwo.addTarget(self, action: #selector(cardTwoFlip), for: .touchUpInside)
         view.addSubview(cardOne)
-        view.addSubview(cardTwo)
+        
         view.addSubview(cardOneLbl)
-        view.addSubview(cardTwoLbl)
+        
+        view.addSubview(yeButton)
+        view.addSubview(nayButton)
+        view.addSubview(yeLbl)
+        view.addSubview(nayLbl)
+        view.addSubview(scoreLbl)
+        yeButton.addTarget(self, action: #selector(checkAnswer), for: .touchUpInside)
+        
         
         
         cardOne.topAnchor.constraint(equalTo: view.topAnchor, constant: 100).isActive = true
@@ -217,18 +302,64 @@ class gameBoardVC: UIViewController {
         cardOneLbl.heightAnchor.constraint(equalToConstant: 250).isActive = true
         cardOneLbl.widthAnchor.constraint(equalToConstant: 350).isActive = true
         
-        cardTwo.topAnchor.constraint(equalTo: view.topAnchor, constant: 375).isActive = true
+        
+        yeButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 400).isActive = true
+        yeButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 30).isActive = true
+        yeButton.heightAnchor.constraint(equalToConstant: 120).isActive = true
+        yeButton.widthAnchor.constraint(equalToConstant: 160).isActive = true
+        
+        yeLbl.topAnchor.constraint(equalTo: view.topAnchor, constant: 400).isActive = true
+        yeLbl.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 30).isActive = true
+        yeLbl.heightAnchor.constraint(equalToConstant: 120).isActive = true
+        yeLbl.widthAnchor.constraint(equalToConstant: 160).isActive = true
+        
+        nayButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 400).isActive = true
+        nayButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 220
+        ).isActive = true
+        nayButton.heightAnchor.constraint(equalToConstant: 120).isActive = true
+        nayButton.widthAnchor.constraint(equalToConstant: 160).isActive = true
+        
+        nayLbl.topAnchor.constraint(equalTo: view.topAnchor, constant: 400).isActive = true
+        nayLbl.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 220
+        ).isActive = true
+        nayLbl.heightAnchor.constraint(equalToConstant: 120).isActive = true
+        nayLbl.widthAnchor.constraint(equalToConstant: 160).isActive = true
+        
+        scoreLbl.topAnchor.constraint(equalTo: view.topAnchor, constant: 650).isActive = true
+        scoreLbl.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 140
+        ).isActive = true
+        scoreLbl.heightAnchor.constraint(equalToConstant: 120).isActive = true
+        scoreLbl.widthAnchor.constraint(equalToConstant: 160).isActive = true
+        
+        view.addSubview(cardTwo)
+        view.addSubview(cardTwoLbl)
+        
+        cardTwo.topAnchor.constraint(equalTo: view.topAnchor, constant: 250).isActive = true
         cardTwo.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 30).isActive = true
         cardTwo.heightAnchor.constraint(equalToConstant: 250).isActive = true
         cardTwo.widthAnchor.constraint(equalToConstant: 350).isActive = true
-        
-        cardTwoLbl.topAnchor.constraint(equalTo: view.topAnchor, constant: 375).isActive = true
+
+        cardTwoLbl.topAnchor.constraint(equalTo: view.topAnchor, constant: 250).isActive = true
         cardTwoLbl.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 30).isActive = true
         cardTwoLbl.heightAnchor.constraint(equalToConstant: 250).isActive = true
         cardTwoLbl.widthAnchor.constraint(equalToConstant: 350).isActive = true
         
-       // generateRandomQuote(label: cardTwoLbl)
-        cardTwoLbl.text = EnSentenceGenerator.random()
+        
+        updateScore(lbl: scoreLbl)
+    }
+    
+    @objc private func checkAnswer(){
+        if isYe == true{
+            score += 10
+            scoreLbl.text = "SCORE: \(score)"
+            cardTwoLbl.isHidden = false
+            cardTwo.isHidden = false
+        }
+    }
+    
+    func updateScore(lbl: UILabel){
+        lbl.font = UIFont(name: "Aquino-Demo", size: 25)
+        lbl.text = "SCORE: \(score)"
     }
     
     func generateRandomQuote(label: UILabel){
@@ -278,6 +409,7 @@ class gameBoardVC: UIViewController {
         var element: String = kanyeQuotes.randomElement()!
         print("Selected quote to be printed: \(element)")
         label.text = element
+        isYe = true
     }
     
     @objc private func cardOneFlip(){
