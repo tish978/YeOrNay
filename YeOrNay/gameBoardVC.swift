@@ -15,6 +15,8 @@ class gameBoardVC: UIViewController {
     var score: Int = 0
     var toBeReturned: String = ""
     var isYe: Bool = false
+    var isNotYe: Bool = false
+    var decidingQuotes: [String] = ["", ""]
     var kanyeQuotes: [String] = ["2024",
                                  "All you have to be is yourself",
                                  "Believe in your flyness...conquer your shyness.",
@@ -354,6 +356,7 @@ class gameBoardVC: UIViewController {
             scoreLbl.text = "SCORE: \(score)"
             cardTwoLbl.isHidden = false
             cardTwo.isHidden = false
+            isNotYe = true
         }
     }
     
@@ -362,7 +365,7 @@ class gameBoardVC: UIViewController {
         lbl.text = "SCORE: \(score)"
     }
     
-    func generateRandomQuote(label: UILabel){
+    func generateRandomQuote(){//){
         //var toBeReturned: String = ""
         
         let url = URL(string: "https://api.quotable.io/random")!
@@ -386,11 +389,12 @@ class gameBoardVC: UIViewController {
             }
 
             //print(json.content)
-            print("Quote to be sent: \(result?.content)")
+           // print("Quote to be sent: \(result?.content)")
             self.toBeReturned = (result?.content as String?)!
-            print(self.toBeReturned)
+            print("Quote to be sent: \(self.toBeReturned)")
+            self.decidingQuotes[1] = self.toBeReturned
             
-            label.text = self.toBeReturned
+            //label.text = self.toBeReturned
             
             //self.setText(label: self.cardTwoLbl, text: result!.content)
             
@@ -407,9 +411,24 @@ class gameBoardVC: UIViewController {
     
     func printQuote(label: UILabel){
         var element: String = kanyeQuotes.randomElement()!
-        print("Selected quote to be printed: \(element)")
-        label.text = element
-        isYe = true
+        print("Selected Kanye quote to be printed: \(element)")
+        decidingQuotes[0] = element
+        
+        //isYe = true
+        generateRandomQuote()
+        print("Value of decidingQuotes[0] is: \(decidingQuotes[0])")
+        print("Value of decidingQuotes[1] is: \(decidingQuotes[1])")
+        
+        label.text = decidingQuotes.randomElement()
+        if label.text == decidingQuotes[0] {
+                isYe = true
+        } else {
+            isYe = false
+        }
+        
+        print("Ultimate quote of label is: \(label.text)")
+        
+        print("decidingQuotes count is: \(decidingQuotes.count)")
     }
     
     @objc private func cardOneFlip(){
@@ -424,12 +443,15 @@ class gameBoardVC: UIViewController {
 
     @objc private func cardTwoFlip(){
         print("cardFlipped!")
-        let gradient = CAGradientLayer()
-        gradient.colors = [UIColor.systemYellow.cgColor, UIColor.systemPurple.cgColor]
-        gradient.startPoint = CGPoint(x: 0.0, y: 0.0)
-        gradient.endPoint = CGPoint(x: 0.75, y: 0.25)
-        gradient.frame = cardOne.bounds
-        cardTwo.layer.addSublayer(gradient)
+//        let gradient = CAGradientLayer()
+//        gradient.colors = [UIColor.systemYellow.cgColor, UIColor.systemPurple.cgColor]
+//        gradient.startPoint = CGPoint(x: 0.0, y: 0.0)
+//        gradient.endPoint = CGPoint(x: 0.75, y: 0.25)
+//        gradient.frame = cardOne.bounds
+//        cardTwo.layer.addSublayer(gradient)
+        printQuote(label: cardOneLbl)
+        cardTwo.isHidden = true
+        cardTwoLbl.isHidden = true
     }
 }
 

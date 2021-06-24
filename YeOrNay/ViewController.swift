@@ -94,7 +94,7 @@ class ViewController: UIViewController {
                         return
                     }
                     
-                    player.play()
+                   // player.play()
                 
                 } catch {
                     print("something went wrong")
