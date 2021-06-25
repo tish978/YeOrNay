@@ -197,6 +197,38 @@ class gameBoardVC: UIViewController {
         return v
     }()
     
+    let cardThreeLbl: UILabel = {
+        let lbl = UILabel(frame: CGRect(x: 75, y: 100, width: 275, height: 200))
+        lbl.translatesAutoresizingMaskIntoConstraints = false
+        lbl.center = CGPoint(x: 300, y: 285)
+        lbl.textAlignment = .center
+        lbl.text = "GAME OVER! \n Press to Restart"
+        lbl.font = UIFont(name: "Aquino-Demo", size: 12)
+        lbl.numberOfLines = 6
+        lbl.lineBreakMode = .byWordWrapping
+        lbl.textColor = #colorLiteral(red: 0, green: 0.9768045545, blue: 0, alpha: 1)
+        lbl.isHidden = true
+        return lbl
+    }()
+    
+    let cardThree: UIButton = {
+        let v = UIButton(frame: CGRect(x: 0, y: 100, width: 350, height: 250))
+        v.translatesAutoresizingMaskIntoConstraints = false
+        v.layer.borderColor = #colorLiteral(red: 0.9764705882, green: 0.9647058824, blue: 0.9764705882, alpha: 1)
+        v.layer.borderWidth = 2
+        let gradient = CAGradientLayer()
+        gradient.colors = [UIColor.black.cgColor, UIColor.gray.cgColor]
+        gradient.startPoint = CGPoint(x: 0.0, y: 0.0)
+        gradient.endPoint = CGPoint(x: 0.75, y: 0.25)
+        gradient.frame = v.bounds
+        v.layer.addSublayer(gradient)
+        v.clipsToBounds = true
+        v.layer.cornerRadius = 12
+        v.isHidden = true
+        v.isUserInteractionEnabled = true
+        return v
+    }()
+    
     let yeButton: UIButton = {
         let v = UIButton(frame: CGRect(x: 0, y: 100, width: 160, height: 150))
         v.translatesAutoresizingMaskIntoConstraints = false
@@ -280,6 +312,7 @@ class gameBoardVC: UIViewController {
         
         cardOne.addTarget(self, action: #selector(cardOneFlip), for: .touchUpInside)
         cardTwo.addTarget(self, action: #selector(cardTwoFlip), for: .touchUpInside)
+        cardThree.addTarget(self, action: #selector(cardThreeFlip), for: .touchUpInside)
         view.addSubview(cardOne)
         
         view.addSubview(cardOneLbl)
@@ -290,6 +323,7 @@ class gameBoardVC: UIViewController {
         view.addSubview(nayLbl)
         view.addSubview(scoreLbl)
         yeButton.addTarget(self, action: #selector(checkAnswer), for: .touchUpInside)
+        nayButton.addTarget(self, action: #selector(checkAnswer2), for: .touchUpInside)
         
         
         
@@ -335,6 +369,8 @@ class gameBoardVC: UIViewController {
         
         view.addSubview(cardTwo)
         view.addSubview(cardTwoLbl)
+        view.addSubview(cardThree)
+        view.addSubview(cardThreeLbl)
         
         cardTwo.topAnchor.constraint(equalTo: view.topAnchor, constant: 250).isActive = true
         cardTwo.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 30).isActive = true
@@ -347,6 +383,16 @@ class gameBoardVC: UIViewController {
         cardTwoLbl.widthAnchor.constraint(equalToConstant: 350).isActive = true
         
         
+        cardThree.topAnchor.constraint(equalTo: view.topAnchor, constant: 250).isActive = true
+        cardThree.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 30).isActive = true
+        cardThree.heightAnchor.constraint(equalToConstant: 250).isActive = true
+        cardThree.widthAnchor.constraint(equalToConstant: 350).isActive = true
+
+        cardThreeLbl.topAnchor.constraint(equalTo: view.topAnchor, constant: 250).isActive = true
+        cardThreeLbl.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 30).isActive = true
+        cardThreeLbl.heightAnchor.constraint(equalToConstant: 250).isActive = true
+        cardThreeLbl.widthAnchor.constraint(equalToConstant: 350).isActive = true
+        
         updateScore(lbl: scoreLbl)
     }
     
@@ -356,7 +402,26 @@ class gameBoardVC: UIViewController {
             scoreLbl.text = "SCORE: \(score)"
             cardTwoLbl.isHidden = false
             cardTwo.isHidden = false
+            //isNotYe = true
+        } else {
             isNotYe = true
+            scoreLbl.text = "INCORRECT"
+            cardThree.isHidden = false
+            cardThreeLbl.isHidden = false
+        }
+    }
+    
+    @objc private func checkAnswer2(){
+        if isYe == false{
+            score += 10
+            scoreLbl.text = "SCORE: \(score)"
+            cardTwo.isHidden = false
+            cardTwoLbl.isHidden = false
+            //isNotYe = true
+        } else {
+            scoreLbl.text = "INCORRECT"
+            cardTwoLbl.isHidden = false
+            cardTwo.isHidden = false
         }
     }
     
@@ -421,7 +486,7 @@ class gameBoardVC: UIViewController {
         
         label.text = decidingQuotes.randomElement()
         if label.text == decidingQuotes[0] {
-                isYe = true
+            isYe = true
         } else {
             isYe = false
         }
@@ -443,15 +508,23 @@ class gameBoardVC: UIViewController {
 
     @objc private func cardTwoFlip(){
         print("cardFlipped!")
-//        let gradient = CAGradientLayer()
-//        gradient.colors = [UIColor.systemYellow.cgColor, UIColor.systemPurple.cgColor]
-//        gradient.startPoint = CGPoint(x: 0.0, y: 0.0)
-//        gradient.endPoint = CGPoint(x: 0.75, y: 0.25)
-//        gradient.frame = cardOne.bounds
-//        cardTwo.layer.addSublayer(gradient)
+        if isYe == true {
+            score = 0
+            scoreLbl.text = "SCORE: \(score)"
+        }
         printQuote(label: cardOneLbl)
         cardTwo.isHidden = true
         cardTwoLbl.isHidden = true
+    }
+    
+    
+    @objc private func cardThreeFlip(){
+        print("cardFlipped!")
+        printQuote(label: cardOneLbl)
+        cardThree.isHidden = true
+        cardThreeLbl.isHidden = true
+        scoreLbl.text = "0"
+        scoreLbl.text = "SCORE: \(score)"
     }
 }
 
