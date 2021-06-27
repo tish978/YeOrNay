@@ -8,9 +8,13 @@ import UIKit
 import Foundation
 import LoremSwiftum
 import BlaBlaBla
+import AVFoundation
 
 class gameBoardVC: UIViewController {
 
+    var player: AVAudioPlayer?
+    var videoPlayer: AVPlayer?
+    
     var newString: String?
     var score: Int = 0
     var toBeReturned: String = ""
@@ -217,7 +221,7 @@ class gameBoardVC: UIViewController {
         v.layer.borderColor = #colorLiteral(red: 0.9764705882, green: 0.9647058824, blue: 0.9764705882, alpha: 1)
         v.layer.borderWidth = 2
         let gradient = CAGradientLayer()
-        gradient.colors = [UIColor.black.cgColor, UIColor.gray.cgColor]
+        gradient.colors = [UIColor.black.cgColor, UIColor.red.cgColor]
         gradient.startPoint = CGPoint(x: 0.0, y: 0.0)
         gradient.endPoint = CGPoint(x: 0.75, y: 0.25)
         gradient.frame = v.bounds
@@ -306,6 +310,8 @@ class gameBoardVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        playBackgroundVideo()
         
         printQuote(label: cardOneLbl)
         
@@ -396,16 +402,40 @@ class gameBoardVC: UIViewController {
         updateScore(lbl: scoreLbl)
     }
     
+    @objc func playerItemDidReachEnd(){
+        videoPlayer!.seek(to: CMTime.zero)
+    }
+    
+    
+    func playBackgroundVideo(){
+        let path = Bundle.main.path(forResource: "yeBGVid", ofType: "mp4")
+        videoPlayer = AVPlayer(url: URL(fileURLWithPath: path!))
+        videoPlayer!.actionAtItemEnd = AVPlayer.ActionAtItemEnd.none
+        let playerLayer = AVPlayerLayer(player: videoPlayer)
+        playerLayer.frame = self.view.frame
+        playerLayer.videoGravity = AVLayerVideoGravity.resizeAspectFill
+        self.view.layer.insertSublayer(playerLayer, at: 0)
+        NotificationCenter.default.addObserver(self, selector: #selector(playerItemDidReachEnd), name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: videoPlayer!.currentItem)
+        videoPlayer!.seek(to: CMTime.zero)
+        videoPlayer!.play()
+        self.videoPlayer?.isMuted = true
+    }
+    
     @objc private func checkAnswer(){
         if isYe == true{
             score += 10
             scoreLbl.text = "SCORE: \(score)"
             cardTwoLbl.isHidden = false
             cardTwo.isHidden = false
-            //isNotYe = true
+            isNotYe = false
         } else {
+            if score > 0 {
+                score = 0
+                scoreLbl.text = "SCORE: \(score)"
+            }
             isNotYe = true
-            scoreLbl.text = "INCORRECT"
+            print("INCORRECT ANSWER")
+            //scoreLbl.text = "INCORRECT"
             cardThree.isHidden = false
             cardThreeLbl.isHidden = false
         }
@@ -419,9 +449,14 @@ class gameBoardVC: UIViewController {
             cardTwoLbl.isHidden = false
             //isNotYe = true
         } else {
-            scoreLbl.text = "INCORRECT"
-            cardTwoLbl.isHidden = false
-            cardTwo.isHidden = false
+            if score > 0 {
+                score = 0
+                scoreLbl.text = "SCORE: \(score)"
+            }
+            print("INCORRECT ANSWER")
+            //scoreLbl.text = "INCORRECT"
+            cardThree.isHidden = false
+            cardThreeLbl.isHidden = false
         }
     }
     
@@ -509,7 +544,10 @@ class gameBoardVC: UIViewController {
     @objc private func cardTwoFlip(){
         print("cardFlipped!")
         if isYe == true {
-            score = 0
+            //score = 0
+//            if score > 0{
+//                score = 0
+//            }
             scoreLbl.text = "SCORE: \(score)"
         }
         printQuote(label: cardOneLbl)

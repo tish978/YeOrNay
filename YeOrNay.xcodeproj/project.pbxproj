@@ -19,7 +19,8 @@
 		670577C3265F46E400701A29 /* YeOrNayUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 670577C2265F46E400701A29 /* YeOrNayUITests.swift */; };
 		671F7E75266560FE00B7D4EE /* gameBoardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 671F7E74266560FE00B7D4EE /* gameBoardVC.swift */; };
 		671F7E7A2665632500B7D4EE /* Aquino-Demo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 671F7E792665632500B7D4EE /* Aquino-Demo.ttf */; };
-		671F7E8026670F4500B7D4EE /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = 671F7E7F26670F4500B7D4EE /* SwiftPackageProductDependency */; };
+		671F7E8026670F4500B7D4EE /* LoremSwiftum in Frameworks */ = {isa = PBXBuildFile; productRef = 671F7E7F26670F4500B7D4EE /* LoremSwiftum */; };
+		6736769326892BB80098F7A3 /* yeBGVid.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 6736769226892BB80098F7A3 /* yeBGVid.mp4 */; };
 		67FF955326608E5C009175FA /* stretchMyHands.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 67FF955226608E5C009175FA /* stretchMyHands.mp3 */; };
 		D6E99734FDE7E614F856585F /* Pods_YeOrNayTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B684887B16842F0ED84D968 /* Pods_YeOrNayTests.framework */; };
 /* End PBXBuildFile section */
@@ -62,6 +63,7 @@
 		670577C4265F46E400701A29 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		671F7E74266560FE00B7D4EE /* gameBoardVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gameBoardVC.swift; sourceTree = "<group>"; };
 		671F7E792665632500B7D4EE /* Aquino-Demo.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Aquino-Demo.ttf"; sourceTree = "<group>"; };
+		6736769226892BB80098F7A3 /* yeBGVid.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = yeBGVid.mp4; sourceTree = "<group>"; };
 		67FF955226608E5C009175FA /* stretchMyHands.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = stretchMyHands.mp3; sourceTree = "<group>"; };
 		7167D3E1A9FE85B0F0906E43 /* Pods-YeOrNay-YeOrNayUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YeOrNay-YeOrNayUITests.release.xcconfig"; path = "Target Support Files/Pods-YeOrNay-YeOrNayUITests/Pods-YeOrNay-YeOrNayUITests.release.xcconfig"; sourceTree = "<group>"; };
 		792B3A585F71C84C822AB1EE /* Pods-YeOrNayTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YeOrNayTests.release.xcconfig"; path = "Target Support Files/Pods-YeOrNayTests/Pods-YeOrNayTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -75,7 +77,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				671F7E8026670F4500B7D4EE /* BuildFile in Frameworks */,
+				671F7E8026670F4500B7D4EE /* LoremSwiftum in Frameworks */,
 				3B479772FDD32FEC4F4EF1CA /* Pods_YeOrNay.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -134,6 +136,7 @@
 		6705779F265F46E200701A29 /* YeOrNay */ = {
 			isa = PBXGroup;
 			children = (
+				6736769226892BB80098F7A3 /* yeBGVid.mp4 */,
 				671F7E792665632500B7D4EE /* Aquino-Demo.ttf */,
 				67FF955226608E5C009175FA /* stretchMyHands.mp3 */,
 				670577A0265F46E200701A29 /* AppDelegate.swift */,
@@ -198,7 +201,7 @@
 			);
 			name = YeOrNay;
 			packageProductDependencies = (
-				671F7E7F26670F4500B7D4EE /* SwiftPackageProductDependency */,
+				671F7E7F26670F4500B7D4EE /* LoremSwiftum */,
 			);
 			productName = YeOrNay;
 			productReference = 6705779D265F46E200701A29 /* YeOrNay.app */;
@@ -275,7 +278,7 @@
 			);
 			mainGroup = 67057794265F46E200701A29;
 			packageReferences = (
-				671F7E7E26670F4500B7D4EE /* RemoteSwiftPackageReference */,
+				671F7E7E26670F4500B7D4EE /* XCRemoteSwiftPackageReference "LoremSwiftum" */,
 			);
 			productRefGroup = 6705779E265F46E200701A29 /* Products */;
 			projectDirPath = "";
@@ -293,6 +296,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6736769326892BB80098F7A3 /* yeBGVid.mp4 in Resources */,
 				670577AD265F46E400701A29 /* LaunchScreen.storyboard in Resources */,
 				671F7E7A2665632500B7D4EE /* Aquino-Demo.ttf in Resources */,
 				67FF955326608E5C009175FA /* stretchMyHands.mp3 in Resources */,
@@ -769,7 +773,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		671F7E7E26670F4500B7D4EE /* RemoteSwiftPackageReference */ = {
+		671F7E7E26670F4500B7D4EE /* XCRemoteSwiftPackageReference "LoremSwiftum" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/lukaskubanek/LoremSwiftum";
 			requirement = {
@@ -780,9 +784,9 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		671F7E7F26670F4500B7D4EE /* SwiftPackageProductDependency */ = {
+		671F7E7F26670F4500B7D4EE /* LoremSwiftum */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 671F7E7E26670F4500B7D4EE /* RemoteSwiftPackageReference */;
+			package = 671F7E7E26670F4500B7D4EE /* XCRemoteSwiftPackageReference "LoremSwiftum" */;
 			productName = LoremSwiftum;
 		};
 /* End XCSwiftPackageProductDependency section */
