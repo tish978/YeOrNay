@@ -68,7 +68,7 @@ class ViewController: UIViewController {
         //player?.stop()
         let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
 
-        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "gameBoardVC") as! gameBoardVC
+        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "AccountViewController") as! AccountViewController
         nextViewController.modalPresentationStyle = .fullScreen
         self.present(nextViewController, animated:true, completion:nil)
     }
@@ -94,7 +94,7 @@ class ViewController: UIViewController {
                         return
                     }
                     
-                    //player.play()
+                    player.play()
                 
                 } catch {
                     print("something went wrong")
