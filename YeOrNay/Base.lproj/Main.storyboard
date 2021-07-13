@@ -120,6 +120,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jup-UM-blP">
                                         <rect key="frame" x="0.0" y="216" width="334" height="34"/>
                                         <state key="normal" title="Sign Up"/>
+                                        <connections>
+                                            <action selector="signUpTapped:" destination="AQf-Ms-DUJ" eventType="touchUpInside" id="Wfm-QW-gnH"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oTU-Vw-hC4">
                                         <rect key="frame" x="0.0" y="270" width="334" height="34"/>
@@ -146,6 +149,14 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="hdV-I2-aU0"/>
+                    <connections>
+                        <outlet property="emailTextField" destination="Bf0-98-YpS" id="4hW-Bk-2dG"/>
+                        <outlet property="errorLabel" destination="oTU-Vw-hC4" id="ERf-6b-18c"/>
+                        <outlet property="firstNameTextField" destination="2SQ-VD-Pbv" id="S6q-Qd-xEV"/>
+                        <outlet property="lastNameTextField" destination="sp6-3U-OPK" id="PWi-R1-P9x"/>
+                        <outlet property="passwordTextField" destination="NRq-SY-76X" id="1gh-h6-AEq"/>
+                        <outlet property="signUpButtion" destination="Jup-UM-blP" id="EkE-H1-zOd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6nr-Qd-fFf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -199,6 +210,12 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="MNE-US-6SF"/>
+                    <connections>
+                        <outlet property="emailTextField" destination="jMh-gI-oyf" id="Bep-AX-7xC"/>
+                        <outlet property="errorLabel" destination="kPa-zo-LD5" id="iPg-4H-PJd"/>
+                        <outlet property="logInBtn" destination="0i3-Jr-paX" id="u9N-jx-hHH"/>
+                        <outlet property="passwordTextField" destination="JU7-BS-qea" id="9bL-0h-kMq"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dLr-a0-S1B" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

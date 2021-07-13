@@ -21,10 +21,12 @@
 		671F7E7A2665632500B7D4EE /* Aquino-Demo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 671F7E792665632500B7D4EE /* Aquino-Demo.ttf */; };
 		671F7E8026670F4500B7D4EE /* LoremSwiftum in Frameworks */ = {isa = PBXBuildFile; productRef = 671F7E7F26670F4500B7D4EE /* LoremSwiftum */; };
 		6736769326892BB80098F7A3 /* yeBGVid.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 6736769226892BB80098F7A3 /* yeBGVid.mp4 */; };
+		6780CDFC269E410B00F86319 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6780CDFB269E410B00F86319 /* GoogleService-Info.plist */; };
+		6780CE2E269E477400F86319 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6780CE2D269E477400F86319 /* Utilities.swift */; };
+		6780CE36269E478400F86319 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6780CE35269E478400F86319 /* Constants.swift */; };
 		67A010AC268E72E400D02858 /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67A010AB268E72E400D02858 /* AccountViewController.swift */; };
 		67A010B8268E7AEF00D02858 /* AccountCreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67A010B7268E7AEF00D02858 /* AccountCreateViewController.swift */; };
 		67A010BD268E7AFF00D02858 /* AccountLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67A010BC268E7AFF00D02858 /* AccountLoginViewController.swift */; };
-		67DB8DF82690F2F4004A66B4 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67DB8DF72690F2F4004A66B4 /* Utilities.swift */; };
 		67FF955326608E5C009175FA /* stretchMyHands.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 67FF955226608E5C009175FA /* stretchMyHands.mp3 */; };
 		D6E99734FDE7E614F856585F /* Pods_YeOrNayTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B684887B16842F0ED84D968 /* Pods_YeOrNayTests.framework */; };
 /* End PBXBuildFile section */
@@ -68,10 +70,12 @@
 		671F7E74266560FE00B7D4EE /* gameBoardVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gameBoardVC.swift; sourceTree = "<group>"; };
 		671F7E792665632500B7D4EE /* Aquino-Demo.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Aquino-Demo.ttf"; sourceTree = "<group>"; };
 		6736769226892BB80098F7A3 /* yeBGVid.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = yeBGVid.mp4; sourceTree = "<group>"; };
+		6780CDFB269E410B00F86319 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		6780CE2D269E477400F86319 /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Utilities.swift; path = ../../CustomLoginDemo/CustomLoginDemo/Helpers/Utilities.swift; sourceTree = "<group>"; };
+		6780CE35269E478400F86319 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		67A010AB268E72E400D02858 /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
 		67A010B7268E7AEF00D02858 /* AccountCreateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountCreateViewController.swift; sourceTree = "<group>"; };
 		67A010BC268E7AFF00D02858 /* AccountLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountLoginViewController.swift; sourceTree = "<group>"; };
-		67DB8DF72690F2F4004A66B4 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		67FF955226608E5C009175FA /* stretchMyHands.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = stretchMyHands.mp3; sourceTree = "<group>"; };
 		7167D3E1A9FE85B0F0906E43 /* Pods-YeOrNay-YeOrNayUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YeOrNay-YeOrNayUITests.release.xcconfig"; path = "Target Support Files/Pods-YeOrNay-YeOrNayUITests/Pods-YeOrNay-YeOrNayUITests.release.xcconfig"; sourceTree = "<group>"; };
 		792B3A585F71C84C822AB1EE /* Pods-YeOrNayTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YeOrNayTests.release.xcconfig"; path = "Target Support Files/Pods-YeOrNayTests/Pods-YeOrNayTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -155,6 +159,7 @@
 				670577A9265F46E400701A29 /* Assets.xcassets */,
 				670577AB265F46E400701A29 /* LaunchScreen.storyboard */,
 				670577AE265F46E400701A29 /* Info.plist */,
+				6780CDFB269E410B00F86319 /* GoogleService-Info.plist */,
 			);
 			path = YeOrNay;
 			sourceTree = "<group>";
@@ -192,7 +197,8 @@
 		67DB8DF62690F2CB004A66B4 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				67DB8DF72690F2F4004A66B4 /* Utilities.swift */,
+				6780CE2D269E477400F86319 /* Utilities.swift */,
+				6780CE35269E478400F86319 /* Constants.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -330,6 +336,7 @@
 				67FF955326608E5C009175FA /* stretchMyHands.mp3 in Resources */,
 				670577AA265F46E400701A29 /* Assets.xcassets in Resources */,
 				670577A8265F46E200701A29 /* Main.storyboard in Resources */,
+				6780CDFC269E410B00F86319 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -463,8 +470,9 @@
 				670577A3265F46E200701A29 /* SceneDelegate.swift in Sources */,
 				67A010B8268E7AEF00D02858 /* AccountCreateViewController.swift in Sources */,
 				67A010BD268E7AFF00D02858 /* AccountLoginViewController.swift in Sources */,
-				67DB8DF82690F2F4004A66B4 /* Utilities.swift in Sources */,
+				6780CE2E269E477400F86319 /* Utilities.swift in Sources */,
 				671F7E75266560FE00B7D4EE /* gameBoardVC.swift in Sources */,
+				6780CE36269E478400F86319 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
