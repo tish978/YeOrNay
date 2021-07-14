@@ -24,6 +24,7 @@
 		6780CDFC269E410B00F86319 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6780CDFB269E410B00F86319 /* GoogleService-Info.plist */; };
 		6780CE2E269E477400F86319 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6780CE2D269E477400F86319 /* Utilities.swift */; };
 		6780CE36269E478400F86319 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6780CE35269E478400F86319 /* Constants.swift */; };
+		6780CE3B269F8C1400F86319 /* artem.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 6780CE3A269F8C1400F86319 /* artem.mp4 */; };
 		67A010AC268E72E400D02858 /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67A010AB268E72E400D02858 /* AccountViewController.swift */; };
 		67A010B8268E7AEF00D02858 /* AccountCreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67A010B7268E7AEF00D02858 /* AccountCreateViewController.swift */; };
 		67A010BD268E7AFF00D02858 /* AccountLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67A010BC268E7AFF00D02858 /* AccountLoginViewController.swift */; };
@@ -73,6 +74,7 @@
 		6780CDFB269E410B00F86319 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		6780CE2D269E477400F86319 /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Utilities.swift; path = ../../CustomLoginDemo/CustomLoginDemo/Helpers/Utilities.swift; sourceTree = "<group>"; };
 		6780CE35269E478400F86319 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		6780CE3A269F8C1400F86319 /* artem.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = artem.mp4; sourceTree = "<group>"; };
 		67A010AB268E72E400D02858 /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
 		67A010B7268E7AEF00D02858 /* AccountCreateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountCreateViewController.swift; sourceTree = "<group>"; };
 		67A010BC268E7AFF00D02858 /* AccountLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountLoginViewController.swift; sourceTree = "<group>"; };
@@ -157,6 +159,7 @@
 				670577A2265F46E200701A29 /* SceneDelegate.swift */,
 				670577A6265F46E200701A29 /* Main.storyboard */,
 				670577A9265F46E400701A29 /* Assets.xcassets */,
+				6780CE3A269F8C1400F86319 /* artem.mp4 */,
 				670577AB265F46E400701A29 /* LaunchScreen.storyboard */,
 				670577AE265F46E400701A29 /* Info.plist */,
 				6780CDFB269E410B00F86319 /* GoogleService-Info.plist */,
@@ -331,6 +334,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6736769326892BB80098F7A3 /* yeBGVid.mp4 in Resources */,
+				6780CE3B269F8C1400F86319 /* artem.mp4 in Resources */,
 				670577AD265F46E400701A29 /* LaunchScreen.storyboard in Resources */,
 				671F7E7A2665632500B7D4EE /* Aquino-Demo.ttf in Resources */,
 				67FF955326608E5C009175FA /* stretchMyHands.mp3 in Resources */,

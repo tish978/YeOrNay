@@ -50,14 +50,18 @@ class ViewController: UIViewController {
         continueBtn.addTarget(self, action: #selector(segueToBoard), for: .touchUpInside)
         view.addSubview(continueBtn)
         continueBtn.topAnchor.constraint(equalTo: view.topAnchor, constant: 500).isActive = true
-        continueBtn.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 110).isActive = true
+        continueBtn.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 90).isActive = true
+        continueBtn.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        continueBtn.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         continueBtn.heightAnchor.constraint(equalToConstant: 75).isActive = true
-        continueBtn.widthAnchor.constraint(equalToConstant: 200).isActive = true
+        continueBtn.widthAnchor.constraint(equalToConstant: 250).isActive = true
         
         view.addSubview(continueBtnLbl)
         
         continueBtnLbl.topAnchor.constraint(equalTo: view.topAnchor, constant: 500).isActive = true
         continueBtnLbl.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 110).isActive = true
+        continueBtnLbl.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        continueBtnLbl.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         continueBtnLbl.heightAnchor.constraint(equalToConstant: 75).isActive = true
         continueBtnLbl.widthAnchor.constraint(equalToConstant: 200).isActive = true
     }

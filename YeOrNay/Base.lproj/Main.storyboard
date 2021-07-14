@@ -19,17 +19,23 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="kanyeCover" translatesAutoresizingMaskIntoConstraints="NO" id="cY5-ut-Zyy">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="YeOrNayLogo" translatesAutoresizingMaskIntoConstraints="NO" id="D0r-ev-85e">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="YeOrNayLogo" translatesAutoresizingMaskIntoConstraints="NO" id="D0r-ev-85e">
                                 <rect key="frame" x="87" y="122" width="240" height="214"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="214" id="ETr-tq-fVA"/>
+                                    <constraint firstAttribute="width" constant="240" id="kS2-Zi-y7F"/>
+                                </constraints>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="cY5-ut-Zyy" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="6tB-ey-fiS"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="D0r-ev-85e" secondAttribute="trailing" constant="87" id="901-I4-rIo"/>
                             <constraint firstAttribute="bottom" secondItem="cY5-ut-Zyy" secondAttribute="bottom" id="Le2-hi-2OF"/>
                             <constraint firstItem="cY5-ut-Zyy" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Rje-fS-NZw"/>
+                            <constraint firstItem="D0r-ev-85e" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="78" id="W28-Kz-90r"/>
+                            <constraint firstItem="D0r-ev-85e" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="87" id="Z1d-7T-SPN"/>
                             <constraint firstItem="cY5-ut-Zyy" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="u5q-Ay-WzF"/>
                         </constraints>
                     </view>

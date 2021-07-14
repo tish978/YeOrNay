@@ -336,33 +336,35 @@ class gameBoardVC: UIViewController {
         cardOne.topAnchor.constraint(equalTo: view.topAnchor, constant: 100).isActive = true
         cardOne.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 30).isActive = true
         cardOne.heightAnchor.constraint(equalToConstant: 250).isActive = true
-        cardOne.widthAnchor.constraint(equalToConstant: 350).isActive = true
+        cardOne.widthAnchor.constraint(equalToConstant: 325).isActive = true
         
         
         cardOneLbl.topAnchor.constraint(equalTo: view.topAnchor, constant: 100).isActive = true
         cardOneLbl.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 30).isActive = true
+//        cardOneLbl.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+//        cardOneLbl.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
         cardOneLbl.heightAnchor.constraint(equalToConstant: 250).isActive = true
-        cardOneLbl.widthAnchor.constraint(equalToConstant: 350).isActive = true
+        cardOneLbl.widthAnchor.constraint(equalToConstant: 325).isActive = true
         
         
         yeButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 400).isActive = true
         yeButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 30).isActive = true
         yeButton.heightAnchor.constraint(equalToConstant: 120).isActive = true
-        yeButton.widthAnchor.constraint(equalToConstant: 160).isActive = true
+        yeButton.widthAnchor.constraint(equalToConstant: 150).isActive = true
         
         yeLbl.topAnchor.constraint(equalTo: view.topAnchor, constant: 400).isActive = true
-        yeLbl.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 30).isActive = true
+        yeLbl.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 25).isActive = true
         yeLbl.heightAnchor.constraint(equalToConstant: 120).isActive = true
         yeLbl.widthAnchor.constraint(equalToConstant: 160).isActive = true
         
         nayButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 400).isActive = true
-        nayButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 220
+        nayButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 215
         ).isActive = true
         nayButton.heightAnchor.constraint(equalToConstant: 120).isActive = true
-        nayButton.widthAnchor.constraint(equalToConstant: 160).isActive = true
+        nayButton.widthAnchor.constraint(equalToConstant: 150).isActive = true
         
         nayLbl.topAnchor.constraint(equalTo: view.topAnchor, constant: 400).isActive = true
-        nayLbl.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 220
+        nayLbl.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 210
         ).isActive = true
         nayLbl.heightAnchor.constraint(equalToConstant: 120).isActive = true
         nayLbl.widthAnchor.constraint(equalToConstant: 160).isActive = true
@@ -408,7 +410,7 @@ class gameBoardVC: UIViewController {
     
     
     func playBackgroundVideo(){
-        let path = Bundle.main.path(forResource: "yeBGVid", ofType: "mp4")
+        let path = Bundle.main.path(forResource: "artem", ofType: "mp4")
         videoPlayer = AVPlayer(url: URL(fileURLWithPath: path!))
         videoPlayer!.actionAtItemEnd = AVPlayer.ActionAtItemEnd.none
         let playerLayer = AVPlayerLayer(player: videoPlayer)

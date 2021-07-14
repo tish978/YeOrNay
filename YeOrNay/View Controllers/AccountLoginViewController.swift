@@ -6,8 +6,11 @@
 //
 
 import UIKit
+import AVFoundation
 
 class AccountLoginViewController: UIViewController {
+    
+    var videoPlayer: AVPlayer?
 
     @IBOutlet weak var emailTextField: UITextField!
     
@@ -23,9 +26,27 @@ class AccountLoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        playBackgroundVideo()
         setUpElements()
     }
     
+    @objc func playerItemDidReachEnd(){
+        videoPlayer!.seek(to: CMTime.zero)
+    }
+    
+    func playBackgroundVideo(){
+        let path = Bundle.main.path(forResource: "artem", ofType: "mp4")
+        videoPlayer = AVPlayer(url: URL(fileURLWithPath: path!))
+        videoPlayer!.actionAtItemEnd = AVPlayer.ActionAtItemEnd.none
+        let playerLayer = AVPlayerLayer(player: videoPlayer)
+        playerLayer.frame = self.view.frame
+        playerLayer.videoGravity = AVLayerVideoGravity.resizeAspectFill
+        self.view.layer.insertSublayer(playerLayer, at: 0)
+        NotificationCenter.default.addObserver(self, selector: #selector(playerItemDidReachEnd), name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: videoPlayer!.currentItem)
+        videoPlayer!.seek(to: CMTime.zero)
+        videoPlayer!.play()
+        self.videoPlayer?.isMuted = true
+    }
 
     func setUpElements(){
         errorLabel.alpha = 0
