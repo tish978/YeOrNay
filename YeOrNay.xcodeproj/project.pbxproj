@@ -17,11 +17,11 @@
 		670577AD265F46E400701A29 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 670577AB265F46E400701A29 /* LaunchScreen.storyboard */; };
 		670577B8265F46E400701A29 /* YeOrNayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 670577B7265F46E400701A29 /* YeOrNayTests.swift */; };
 		670577C3265F46E400701A29 /* YeOrNayUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 670577C2265F46E400701A29 /* YeOrNayUITests.swift */; };
+		671C5C46269FA32F0099455C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 671C5C45269FA32F0099455C /* GoogleService-Info.plist */; };
 		671F7E75266560FE00B7D4EE /* gameBoardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 671F7E74266560FE00B7D4EE /* gameBoardVC.swift */; };
 		671F7E7A2665632500B7D4EE /* Aquino-Demo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 671F7E792665632500B7D4EE /* Aquino-Demo.ttf */; };
 		671F7E8026670F4500B7D4EE /* LoremSwiftum in Frameworks */ = {isa = PBXBuildFile; productRef = 671F7E7F26670F4500B7D4EE /* LoremSwiftum */; };
 		6736769326892BB80098F7A3 /* yeBGVid.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 6736769226892BB80098F7A3 /* yeBGVid.mp4 */; };
-		6780CDFC269E410B00F86319 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6780CDFB269E410B00F86319 /* GoogleService-Info.plist */; };
 		6780CE2E269E477400F86319 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6780CE2D269E477400F86319 /* Utilities.swift */; };
 		6780CE36269E478400F86319 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6780CE35269E478400F86319 /* Constants.swift */; };
 		6780CE3B269F8C1400F86319 /* artem.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 6780CE3A269F8C1400F86319 /* artem.mp4 */; };
@@ -68,10 +68,10 @@
 		670577BE265F46E400701A29 /* YeOrNayUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YeOrNayUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		670577C2265F46E400701A29 /* YeOrNayUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YeOrNayUITests.swift; sourceTree = "<group>"; };
 		670577C4265F46E400701A29 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		671C5C45269FA32F0099455C /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		671F7E74266560FE00B7D4EE /* gameBoardVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gameBoardVC.swift; sourceTree = "<group>"; };
 		671F7E792665632500B7D4EE /* Aquino-Demo.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Aquino-Demo.ttf"; sourceTree = "<group>"; };
 		6736769226892BB80098F7A3 /* yeBGVid.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = yeBGVid.mp4; sourceTree = "<group>"; };
-		6780CDFB269E410B00F86319 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		6780CE2D269E477400F86319 /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Utilities.swift; path = ../../CustomLoginDemo/CustomLoginDemo/Helpers/Utilities.swift; sourceTree = "<group>"; };
 		6780CE35269E478400F86319 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		6780CE3A269F8C1400F86319 /* artem.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = artem.mp4; sourceTree = "<group>"; };
@@ -162,7 +162,7 @@
 				6780CE3A269F8C1400F86319 /* artem.mp4 */,
 				670577AB265F46E400701A29 /* LaunchScreen.storyboard */,
 				670577AE265F46E400701A29 /* Info.plist */,
-				6780CDFB269E410B00F86319 /* GoogleService-Info.plist */,
+				671C5C45269FA32F0099455C /* GoogleService-Info.plist */,
 			);
 			path = YeOrNay;
 			sourceTree = "<group>";
@@ -334,13 +334,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				6736769326892BB80098F7A3 /* yeBGVid.mp4 in Resources */,
+				671C5C46269FA32F0099455C /* GoogleService-Info.plist in Resources */,
 				6780CE3B269F8C1400F86319 /* artem.mp4 in Resources */,
 				670577AD265F46E400701A29 /* LaunchScreen.storyboard in Resources */,
 				671F7E7A2665632500B7D4EE /* Aquino-Demo.ttf in Resources */,
 				67FF955326608E5C009175FA /* stretchMyHands.mp3 in Resources */,
 				670577AA265F46E400701A29 /* Assets.xcassets in Resources */,
 				670577A8265F46E200701A29 /* Main.storyboard in Resources */,
-				6780CDFC269E410B00F86319 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
