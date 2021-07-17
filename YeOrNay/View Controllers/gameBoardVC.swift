@@ -351,7 +351,7 @@ class gameBoardVC: UIViewController {
         
         yeButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 400).isActive = true
         yeButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 30).isActive = true
-        yeButton.rightAnchor.constraint(equalTo: view.leftAnchor, constant: 180).isActive = true
+        yeButton.rightAnchor.constraint(equalTo: view.leftAnchor, constant: 175).isActive = true
         yeButton.heightAnchor.constraint(equalToConstant: 120).isActive = true
         yeButton.widthAnchor.constraint(equalToConstant: 150).isActive = true
         
@@ -361,20 +361,23 @@ class gameBoardVC: UIViewController {
         yeLbl.widthAnchor.constraint(equalToConstant: 160).isActive = true
         
         nayButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 400).isActive = true
-        nayButton.leftAnchor.constraint(equalTo: yeButton.rightAnchor, constant: 25).isActive = true
+        //nayButton.leftAnchor.constraint(equalTo: yeButton.rightAnchor, constant: 50).isActive = true
+        nayButton.leftAnchor.constraint(equalTo: view.rightAnchor, constant: -175).isActive = true
         nayButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -25).isActive = true
         nayButton.heightAnchor.constraint(equalToConstant: 120).isActive = true
         nayButton.widthAnchor.constraint(equalToConstant: 160).isActive = true
         
         nayLbl.topAnchor.constraint(equalTo: view.topAnchor, constant: 400).isActive = true
-        nayLbl.leftAnchor.constraint(equalTo: nayButton.leftAnchor, constant: -5).isActive = true
-        //nayLbl.leftAnchor.constraint(equalTo: nayButton.rightAnchor, constant: -5).isActive = true
+        nayLbl.leftAnchor.constraint(equalTo: nayButton.leftAnchor, constant: 0).isActive = true
+        //nayLbl.leftAnchor.constraint(equalTo: nayButton.l, constant: -5).isActive = true
         nayLbl.heightAnchor.constraint(equalToConstant: 120).isActive = true
         nayLbl.widthAnchor.constraint(equalToConstant: 160).isActive = true
         
         scoreLbl.topAnchor.constraint(equalTo: yeButton.topAnchor, constant: 150).isActive = true
         //scoreLbl.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 125).isActive = true
-        scoreLbl.leftAnchor.constraint(equalTo: yeButton.leftAnchor, constant: 75).isActive = true
+        //scoreLbl.leftAnchor.constraint(equalTo: yeButton.rightAnchor, constant: -50).isActive = true
+        scoreLbl.leftAnchor.constraint(equalTo: yeButton.rightAnchor, constant: -45).isActive = true
+        scoreLbl.rightAnchor.constraint(equalTo: nayButton.leftAnchor, constant: 40).isActive = true
         scoreLbl.heightAnchor.constraint(equalToConstant: 120).isActive = true
         scoreLbl.widthAnchor.constraint(equalToConstant: 160).isActive = true
         
