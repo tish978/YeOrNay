@@ -22,6 +22,7 @@
 		671F7E7A2665632500B7D4EE /* Aquino-Demo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 671F7E792665632500B7D4EE /* Aquino-Demo.ttf */; };
 		671F7E8026670F4500B7D4EE /* LoremSwiftum in Frameworks */ = {isa = PBXBuildFile; productRef = 671F7E7F26670F4500B7D4EE /* LoremSwiftum */; };
 		6736769326892BB80098F7A3 /* yeBGVid.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 6736769226892BB80098F7A3 /* yeBGVid.mp4 */; };
+		6760824C26A5049E001240C9 /* LeaderboardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6760824B26A5049E001240C9 /* LeaderboardVC.swift */; };
 		6780CE2E269E477400F86319 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6780CE2D269E477400F86319 /* Utilities.swift */; };
 		6780CE36269E478400F86319 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6780CE35269E478400F86319 /* Constants.swift */; };
 		6780CE3B269F8C1400F86319 /* artem.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 6780CE3A269F8C1400F86319 /* artem.mp4 */; };
@@ -72,6 +73,7 @@
 		671F7E74266560FE00B7D4EE /* gameBoardVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gameBoardVC.swift; sourceTree = "<group>"; };
 		671F7E792665632500B7D4EE /* Aquino-Demo.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Aquino-Demo.ttf"; sourceTree = "<group>"; };
 		6736769226892BB80098F7A3 /* yeBGVid.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = yeBGVid.mp4; sourceTree = "<group>"; };
+		6760824B26A5049E001240C9 /* LeaderboardVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardVC.swift; sourceTree = "<group>"; };
 		6780CE2D269E477400F86319 /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Utilities.swift; path = ../../CustomLoginDemo/CustomLoginDemo/Helpers/Utilities.swift; sourceTree = "<group>"; };
 		6780CE35269E478400F86319 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		6780CE3A269F8C1400F86319 /* artem.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = artem.mp4; sourceTree = "<group>"; };
@@ -193,6 +195,7 @@
 				67A010AB268E72E400D02858 /* AccountViewController.swift */,
 				67A010B7268E7AEF00D02858 /* AccountCreateViewController.swift */,
 				67A010BC268E7AFF00D02858 /* AccountLoginViewController.swift */,
+				6760824B26A5049E001240C9 /* LeaderboardVC.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -472,6 +475,7 @@
 				67A010AC268E72E400D02858 /* AccountViewController.swift in Sources */,
 				670577A1265F46E200701A29 /* AppDelegate.swift in Sources */,
 				670577A3265F46E200701A29 /* SceneDelegate.swift in Sources */,
+				6760824C26A5049E001240C9 /* LeaderboardVC.swift in Sources */,
 				67A010B8268E7AEF00D02858 /* AccountCreateViewController.swift in Sources */,
 				67A010BD268E7AFF00D02858 /* AccountLoginViewController.swift in Sources */,
 				6780CE2E269E477400F86319 /* Utilities.swift in Sources */,

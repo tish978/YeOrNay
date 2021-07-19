@@ -12,6 +12,8 @@ class AccountViewController: UIViewController {
 
     var videoPlayer: AVPlayer?
     
+
+    
     @IBOutlet weak var loginBtn: UIButton!
     
     @IBOutlet weak var signUpBtn: UIButton!

@@ -9,9 +9,16 @@ import Foundation
 import LoremSwiftum
 import BlaBlaBla
 import AVFoundation
+import Firebase
+import FirebaseFirestore
+import FirebaseAuth
+import ICConfetti
 
 class gameBoardVC: UIViewController {
 
+    var icConfetti: ICConfetti!
+    //icConfetti = ICConfetti()
+    
     var player: AVAudioPlayer?
     var videoPlayer: AVPlayer?
     
@@ -189,7 +196,7 @@ class gameBoardVC: UIViewController {
         v.layer.borderColor = #colorLiteral(red: 0.9764705882, green: 0.9647058824, blue: 0.9764705882, alpha: 1)
         v.layer.borderWidth = 2
         let gradient = CAGradientLayer()
-        gradient.colors = [UIColor.black.cgColor, UIColor.gray.cgColor]
+        gradient.colors = [UIColor.blue.cgColor, UIColor.systemGreen.cgColor]
         gradient.startPoint = CGPoint(x: 0.0, y: 0.0)
         gradient.endPoint = CGPoint(x: 0.75, y: 0.25)
         gradient.frame = v.bounds
@@ -216,7 +223,7 @@ class gameBoardVC: UIViewController {
     }()
     
     let cardThree: UIButton = {
-        let v = UIButton(frame: CGRect(x: 0, y: 100, width: 350, height: 250))
+        let v = UIButton(frame: CGRect(x: 0, y: 100, width: 200, height: 250))
         v.translatesAutoresizingMaskIntoConstraints = false
         v.layer.borderColor = #colorLiteral(red: 0.9764705882, green: 0.9647058824, blue: 0.9764705882, alpha: 1)
         v.layer.borderWidth = 2
@@ -310,6 +317,8 @@ class gameBoardVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        icConfetti = ICConfetti()
+        //icConfetti.rain(in: self.view)
         
         playBackgroundVideo()
         
@@ -333,14 +342,14 @@ class gameBoardVC: UIViewController {
         
         
         
-        cardOne.topAnchor.constraint(equalTo: view.topAnchor, constant: 100).isActive = true
+        cardOne.topAnchor.constraint(equalTo: view.topAnchor, constant: 150).isActive = true
         cardOne.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 30).isActive = true
         cardOne.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -30).isActive = true
         cardOne.heightAnchor.constraint(equalToConstant: 250).isActive = true
         cardOne.widthAnchor.constraint(equalToConstant: 325).isActive = true
         
         
-        cardOneLbl.topAnchor.constraint(equalTo: view.topAnchor, constant: 100).isActive = true
+        cardOneLbl.topAnchor.constraint(equalTo: view.topAnchor, constant: 150).isActive = true
         cardOneLbl.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 30).isActive = true
         cardOneLbl.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -30).isActive = true
 //        cardOneLbl.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
@@ -349,25 +358,25 @@ class gameBoardVC: UIViewController {
         cardOneLbl.widthAnchor.constraint(equalToConstant: 325).isActive = true
         
         
-        yeButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 400).isActive = true
+        yeButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 450).isActive = true
         yeButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 30).isActive = true
         yeButton.rightAnchor.constraint(equalTo: view.leftAnchor, constant: 175).isActive = true
         yeButton.heightAnchor.constraint(equalToConstant: 120).isActive = true
         yeButton.widthAnchor.constraint(equalToConstant: 150).isActive = true
         
-        yeLbl.topAnchor.constraint(equalTo: view.topAnchor, constant: 400).isActive = true
+        yeLbl.topAnchor.constraint(equalTo: view.topAnchor, constant: 450).isActive = true
         yeLbl.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 25).isActive = true
         yeLbl.heightAnchor.constraint(equalToConstant: 120).isActive = true
         yeLbl.widthAnchor.constraint(equalToConstant: 160).isActive = true
         
-        nayButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 400).isActive = true
+        nayButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 450).isActive = true
         //nayButton.leftAnchor.constraint(equalTo: yeButton.rightAnchor, constant: 50).isActive = true
         nayButton.leftAnchor.constraint(equalTo: view.rightAnchor, constant: -175).isActive = true
         nayButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -25).isActive = true
         nayButton.heightAnchor.constraint(equalToConstant: 120).isActive = true
         nayButton.widthAnchor.constraint(equalToConstant: 160).isActive = true
         
-        nayLbl.topAnchor.constraint(equalTo: view.topAnchor, constant: 400).isActive = true
+        nayLbl.topAnchor.constraint(equalTo: view.topAnchor, constant: 450).isActive = true
         nayLbl.leftAnchor.constraint(equalTo: nayButton.leftAnchor, constant: 0).isActive = true
         //nayLbl.leftAnchor.constraint(equalTo: nayButton.l, constant: -5).isActive = true
         nayLbl.heightAnchor.constraint(equalToConstant: 120).isActive = true
@@ -387,27 +396,33 @@ class gameBoardVC: UIViewController {
         view.addSubview(cardThreeLbl)
         
         cardTwo.topAnchor.constraint(equalTo: view.topAnchor, constant: 250).isActive = true
-        cardTwo.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 30).isActive = true
+        cardTwo.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20).isActive = true
+        cardTwo.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -20).isActive = true
         cardTwo.heightAnchor.constraint(equalToConstant: 250).isActive = true
-        cardTwo.widthAnchor.constraint(equalToConstant: 350).isActive = true
+        cardTwo.widthAnchor.constraint(equalToConstant: 325).isActive = true
 
         cardTwoLbl.topAnchor.constraint(equalTo: view.topAnchor, constant: 250).isActive = true
         cardTwoLbl.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 30).isActive = true
+        cardTwoLbl.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -30).isActive = true
         cardTwoLbl.heightAnchor.constraint(equalToConstant: 250).isActive = true
-        cardTwoLbl.widthAnchor.constraint(equalToConstant: 350).isActive = true
+        cardTwoLbl.widthAnchor.constraint(equalToConstant: 325).isActive = true
         
         
         cardThree.topAnchor.constraint(equalTo: view.topAnchor, constant: 250).isActive = true
         cardThree.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 30).isActive = true
+        cardThree.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -30).isActive = true
         cardThree.heightAnchor.constraint(equalToConstant: 250).isActive = true
-        cardThree.widthAnchor.constraint(equalToConstant: 350).isActive = true
+        cardThree.widthAnchor.constraint(equalToConstant: 250).isActive = true
 
         cardThreeLbl.topAnchor.constraint(equalTo: view.topAnchor, constant: 250).isActive = true
         cardThreeLbl.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 30).isActive = true
+        cardThreeLbl.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -30).isActive = true
         cardThreeLbl.heightAnchor.constraint(equalToConstant: 250).isActive = true
-        cardThreeLbl.widthAnchor.constraint(equalToConstant: 350).isActive = true
+        cardThreeLbl.widthAnchor.constraint(equalToConstant: 250).isActive = true
         
         updateScore(lbl: scoreLbl)
+        
+        checkScore()
     }
     
     @objc func playerItemDidReachEnd(){
@@ -433,6 +448,7 @@ class gameBoardVC: UIViewController {
         if isYe == true{
             score += 10
             scoreLbl.text = "SCORE: \(score)"
+            checkScore()
             cardTwoLbl.isHidden = false
             cardTwo.isHidden = false
             isNotYe = false
@@ -469,12 +485,57 @@ class gameBoardVC: UIViewController {
     }
     
     func updateScore(lbl: UILabel){
+        print("CHECK 1")
         lbl.font = UIFont(name: "Aquino-Demo", size: 25)
         lbl.text = "SCORE: \(score)"
+        print("CHECK 2")
+        checkScore()
+        print("CHECK 3")
     }
+    
+    
+    func checkScore(){
+        
+        //var tempScore = 0
+        
+        print("1")
+        
+        //var icConfetti: ICConfetti!
+        
+        let db = Firestore.firestore()
+        
+        print("2")
+        
+        let ref = db.collection("users").whereField("highScore", isGreaterThanOrEqualTo: 0)
+            
+        ref.getDocuments(){ (querysnapshot, err) in
+            print("3")
+            if let err = err {
+                print("4")
+                print("Error getting documents: \(err)")
+            } else {
+                for document in querysnapshot!.documents{
+                    print("Current value of self.score i: \(self.score)")
+                    print("Currnt value of DB highScore is: \(document.get("highScore") as! Int)")
+                    if self.score > document.get("highScore") as! Int{
+                        // update field to high score!
+                        document.reference.updateData([
+                            "highScore":self.score
+                        ])
+                        print("Updated highScore in DB")
+                        self.icConfetti.rain(in: super.view)
+                    }
+                }
+            }
+        }
+        print("6")
+    }
+    
     
     func generateRandomQuote(){//){
         //var toBeReturned: String = ""
+        
+        //self.icConfetti.stopRaining()
         
         let url = URL(string: "https://api.quotable.io/random")!
         
