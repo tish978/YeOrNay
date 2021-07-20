@@ -15,6 +15,17 @@ class AccountCreateViewController: UIViewController {
     
     var videoPlayer: AVPlayer?
 
+    
+    
+    @IBAction func backButtonSegue(_ sender: Any) {
+        print("back button segue triggered!")
+        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "AccountViewController") as! AccountViewController
+        nextViewController.modalPresentationStyle = .fullScreen
+        self.present(nextViewController, animated:true, completion:nil)
+    }
+    
+    
     @IBOutlet weak var firstNameTextField: UITextField!
     
     

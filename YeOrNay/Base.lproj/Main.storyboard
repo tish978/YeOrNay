@@ -11,7 +11,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="YeOrNay" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="ViewController" customModule="YeOrNay" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -47,6 +47,7 @@
                             <constraint firstItem="cY5-ut-Zyy" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="u5q-Ay-WzF"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="Opu-wh-cHG"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -82,6 +83,14 @@
                                     <constraint firstItem="CcV-Iz-aY0" firstAttribute="height" secondItem="Uqq-Ab-wfb" secondAttribute="height" id="Reu-Um-htS"/>
                                 </constraints>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mzi-EB-jJU">
+                                <rect key="frame" x="187" y="112" width="40" height="259"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="BACK"/>
+                                <connections>
+                                    <action selector="backButtonSegue:" destination="lVW-1a-re1" eventType="touchUpInside" id="kdb-zf-4cj"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="8a8-TA-x30"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -92,6 +101,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="backButton" destination="Mzi-EB-jJU" id="Csh-uA-iLD"/>
                         <outlet property="loginBtn" destination="Uqq-Ab-wfb" id="QCV-qR-yhg"/>
                         <outlet property="signUpBtn" destination="CcV-Iz-aY0" id="aN2-5y-gsH"/>
                     </connections>
@@ -103,7 +113,7 @@
         <!--Account Create View Controller-->
         <scene sceneID="aSM-xN-9ec">
             <objects>
-                <viewController storyboardIdentifier="AccountCreateViewController" id="AQf-Ms-DUJ" customClass="AccountCreateViewController" customModule="YeOrNay" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AccountCreateViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="AQf-Ms-DUJ" customClass="AccountCreateViewController" customModule="YeOrNay" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="aQm-gD-MGq">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -153,6 +163,14 @@
                                     <constraint firstItem="oTU-Vw-hC4" firstAttribute="height" secondItem="2SQ-VD-Pbv" secondAttribute="height" id="qgx-Gu-A2I"/>
                                 </constraints>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BO8-qI-PhW">
+                                <rect key="frame" x="187" y="522" width="40" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="BACK"/>
+                                <connections>
+                                    <action selector="backButtonSegue:" destination="AQf-Ms-DUJ" eventType="touchUpInside" id="Df3-of-moK"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="IiO-08-o5W"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -214,6 +232,14 @@
                                     <constraint firstItem="0i3-Jr-paX" firstAttribute="height" secondItem="jMh-gI-oyf" secondAttribute="height" id="yhb-EZ-CLQ"/>
                                 </constraints>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cG6-Wp-6Fk">
+                                <rect key="frame" x="187" y="531" width="40" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="BACK"/>
+                                <connections>
+                                    <action selector="backButtonSegue:" destination="lHO-0N-Dri" eventType="touchUpInside" id="IOf-WH-kTc"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="aiA-ga-K8i"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -225,6 +251,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="MNE-US-6SF"/>
                     <connections>
+                        <outlet property="backButton" destination="cG6-Wp-6Fk" id="JD2-B0-B6A"/>
                         <outlet property="emailTextField" destination="jMh-gI-oyf" id="Bep-AX-7xC"/>
                         <outlet property="errorLabel" destination="kPa-zo-LD5" id="iPg-4H-PJd"/>
                         <outlet property="logInBtn" destination="0i3-Jr-paX" id="u9N-jx-hHH"/>
@@ -253,18 +280,29 @@
         <!--LeaderboardVC-->
         <scene sceneID="f1R-mG-hXi">
             <objects>
-                <viewController id="fu2-Lm-4B5" customClass="LeaderboardVC" customModule="YeOrNay" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LeaderboardVC" id="fu2-Lm-4B5" customClass="LeaderboardVC" customModule="YeOrNay" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="HfQ-rV-uam">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="yGs-DU-t1m">
+                                <rect key="frame" x="20" y="94" width="374" height="634"/>
+                            </stackView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="phu-rl-GFP"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="phu-rl-GFP" firstAttribute="bottom" secondItem="yGs-DU-t1m" secondAttribute="bottom" constant="80" id="Axq-AN-XgM"/>
+                            <constraint firstItem="yGs-DU-t1m" firstAttribute="leading" secondItem="phu-rl-GFP" secondAttribute="leading" constant="20" id="Z5d-Yn-YpZ"/>
+                            <constraint firstItem="phu-rl-GFP" firstAttribute="trailing" secondItem="yGs-DU-t1m" secondAttribute="trailing" constant="20" id="oBK-rs-0jw"/>
+                            <constraint firstItem="yGs-DU-t1m" firstAttribute="top" secondItem="phu-rl-GFP" secondAttribute="top" constant="94" id="rgQ-T9-r64"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="62F-ZC-7pa"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ceC-ew-whG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1146" y="1000"/>
+            <point key="canvasLocation" x="1144.9275362318842" y="999.77678571428567"/>
         </scene>
     </scenes>
     <resources>
