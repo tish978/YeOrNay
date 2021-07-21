@@ -31,7 +31,7 @@ class LeaderboardVC: UIViewController {
     let scoreLabel: UILabel = {
         let lbl = UILabel(frame: CGRect(x: 75, y: 100, width: 275, height: 200))
         lbl.translatesAutoresizingMaskIntoConstraints = false
-        lbl.text = "NAME                 SCORE"
+        lbl.text = "NAME    SCORE"
         lbl.font = UIFont(name: "Aquino-Demo", size: 25)
         return lbl
     }()
@@ -41,7 +41,7 @@ class LeaderboardVC: UIViewController {
         let lbl = UILabel(frame: CGRect(x: 75, y: 100, width: 275, height: 200))
         lbl.translatesAutoresizingMaskIntoConstraints = false
         lbl.text = "INSERT TEXT"
-        lbl.font = UIFont(name: "Aquino-Demo", size: 30)
+        lbl.font = UIFont(name: "Aquino-Demo", size: 18)
         return lbl
     }()
     
@@ -49,7 +49,7 @@ class LeaderboardVC: UIViewController {
         let lbl = UILabel(frame: CGRect(x: 75, y: 100, width: 275, height: 200))
         lbl.translatesAutoresizingMaskIntoConstraints = false
         lbl.text = "INSERT TEXT"
-        lbl.font = UIFont(name: "Aquino-Demo", size: 12)
+        lbl.font = UIFont(name: "Aquino-Demo", size: 18)
         return lbl
     }()
     
@@ -58,7 +58,7 @@ class LeaderboardVC: UIViewController {
         let lbl = UILabel(frame: CGRect(x: 75, y: 100, width: 275, height: 200))
         lbl.translatesAutoresizingMaskIntoConstraints = false
         lbl.text = "INSERT TEXT"
-        lbl.font = UIFont(name: "Aquino-Demo", size: 12)
+        lbl.font = UIFont(name: "Aquino-Demo", size: 18)
         return lbl
     }()
     
@@ -68,12 +68,28 @@ class LeaderboardVC: UIViewController {
         let lbl = UILabel(frame: CGRect(x: 75, y: 100, width: 275, height: 200))
         lbl.translatesAutoresizingMaskIntoConstraints = false
         lbl.text = "INSERT TEXT"
-        lbl.font = UIFont(name: "Aquino-Demo", size: 12)
+        lbl.font = UIFont(name: "Aquino-Demo", size: 18)
         return lbl
     }()
     
     
+    let yourScoreLbl: UILabel = {
+        let lbl = UILabel(frame: CGRect(x: 75, y: 100, width: 275, height: 200))
+        lbl.translatesAutoresizingMaskIntoConstraints = false
+        lbl.text = "YOUR HIGH SCORE:"
+        lbl.font = UIFont(name: "Aquino-Demo", size: 25)
+        lbl.textColor = .orange
+        return lbl
+    }()
     
+    let yourScore: UILabel = {
+        let lbl = UILabel(frame: CGRect(x: 75, y: 100, width: 275, height: 200))
+        lbl.translatesAutoresizingMaskIntoConstraints = false
+        lbl.text = "300"
+        lbl.font = UIFont(name: "Aquino-Demo", size: 50)
+        lbl.textColor = .green
+        return lbl
+    }()
     
     @IBOutlet weak var backToHome: UIButton!
     
@@ -100,24 +116,73 @@ class LeaderboardVC: UIViewController {
         view.addSubview(leaderLabel)
         view.addSubview(scoreLabel)
         view.addSubview(textField1)
-        //view.addSubview(textField2)
-        //view.addSubview(textField3)
-        //view.addSubview(textField4)
+        view.addSubview(textField2)
+        view.addSubview(textField3)
+        view.addSubview(textField4)
+        view.addSubview(yourScoreLbl)
+        view.addSubview(yourScore)
+        
+        
+        getUserScore()
+        
         
         leaderLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 100).isActive = true
         leaderLabel.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20).isActive = true
         
         
         scoreLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 150).isActive = true
-        scoreLabel.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 60).isActive = true
+        scoreLabel.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 100).isActive = true
         
         
-        textField1.topAnchor.constraint(equalTo: view.topAnchor, constant: 250).isActive = true
-        textField1.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 30).isActive = true
+        textField1.topAnchor.constraint(equalTo: view.topAnchor, constant: 200).isActive = true
+        textField1.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 125).isActive = true
         
+        textField2.topAnchor.constraint(equalTo: view.topAnchor, constant: 225).isActive = true
+        textField2.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 125).isActive = true
+        
+        textField3.topAnchor.constraint(equalTo: view.topAnchor, constant: 250).isActive = true
+        textField3.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 125).isActive = true
+        
+        
+        textField4.topAnchor.constraint(equalTo: view.topAnchor, constant: 275).isActive = true
+        textField4.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 125).isActive = true
+        
+        
+        yourScoreLbl.topAnchor.constraint(equalTo: view.topAnchor, constant: 350).isActive = true
+        yourScoreLbl.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 75).isActive = true
+        
+        
+        yourScore.topAnchor.constraint(equalTo: view.topAnchor, constant: 380).isActive = true
+        yourScore.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 165).isActive = true
     }
     
 
+    
+    func getUserScore(){
+        let user = Auth.auth().currentUser
+        if let user = user {
+            let uid = user.uid
+            let score = user.metadata
+            print("METADATA: \(score)")
+            
+            let ref = db.collection("users").document(Auth.auth().currentUser!.uid)
+            print("REF: \(ref)")
+            
+            ref.getDocument(){ (querySnapshot, err) in
+                if let err = err {
+                    print("Error getting documents: \(err)")
+                } else {
+                    var yourScore: Int = querySnapshot?.get("highScore") as! Int
+                    var yourScoreString: String = "\(yourScore)" as! String
+                    self.yourScore.text = yourScoreString
+                    print("Value of score is: \(yourScoreString)")
+                }
+            }
+        }
+    }
+    
+    
+    
     func calculateLeaders(){
         
         var intNum = 1
