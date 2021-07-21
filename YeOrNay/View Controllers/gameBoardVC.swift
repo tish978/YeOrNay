@@ -19,6 +19,16 @@ class gameBoardVC: UIViewController {
     var icConfetti: ICConfetti!
     //icConfetti = ICConfetti()
     
+    
+    @IBAction func backToHome(_ sender: Any) {
+        print("back button segue triggered!")
+        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "ViewController") as! ViewController
+        nextViewController.modalPresentationStyle = .fullScreen
+        self.present(nextViewController, animated:true, completion:nil)
+    }
+    
+    
     var player: AVAudioPlayer?
     var videoPlayer: AVPlayer?
     

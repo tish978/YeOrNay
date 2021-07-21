@@ -83,10 +83,9 @@
                                     <constraint firstItem="CcV-Iz-aY0" firstAttribute="height" secondItem="Uqq-Ab-wfb" secondAttribute="height" id="Reu-Um-htS"/>
                                 </constraints>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mzi-EB-jJU">
-                                <rect key="frame" x="187" y="112" width="40" height="259"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="BACK"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mzi-EB-jJU">
+                                <rect key="frame" x="20" y="44" width="96" height="96"/>
+                                <state key="normal" image="backButton"/>
                                 <connections>
                                     <action selector="backButtonSegue:" destination="lVW-1a-re1" eventType="touchUpInside" id="kdb-zf-4cj"/>
                                 </connections>
@@ -95,6 +94,8 @@
                         <viewLayoutGuide key="safeArea" id="8a8-TA-x30"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="Mzi-EB-jJU" firstAttribute="leading" secondItem="8a8-TA-x30" secondAttribute="leading" constant="20" id="31d-Iz-x7U"/>
+                            <constraint firstItem="Mzi-EB-jJU" firstAttribute="top" secondItem="8a8-TA-x30" secondAttribute="top" id="Ef8-rB-cTF"/>
                             <constraint firstItem="8a8-TA-x30" firstAttribute="trailing" secondItem="dLX-IS-7il" secondAttribute="trailing" constant="68" id="TOI-zx-Edx"/>
                             <constraint firstItem="dLX-IS-7il" firstAttribute="leading" secondItem="8a8-TA-x30" secondAttribute="leading" constant="68" id="W0l-it-Zbe"/>
                             <constraint firstItem="8a8-TA-x30" firstAttribute="bottom" secondItem="dLX-IS-7il" secondAttribute="bottom" constant="314" id="fSz-DL-Quf"/>
@@ -163,10 +164,9 @@
                                     <constraint firstItem="oTU-Vw-hC4" firstAttribute="height" secondItem="2SQ-VD-Pbv" secondAttribute="height" id="qgx-Gu-A2I"/>
                                 </constraints>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BO8-qI-PhW">
-                                <rect key="frame" x="187" y="522" width="40" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="BACK"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BO8-qI-PhW">
+                                <rect key="frame" x="20" y="712" width="96" height="96"/>
+                                <state key="normal" image="backButton"/>
                                 <connections>
                                     <action selector="backButtonSegue:" destination="AQf-Ms-DUJ" eventType="touchUpInside" id="Df3-of-moK"/>
                                 </connections>
@@ -175,7 +175,9 @@
                         <viewLayoutGuide key="safeArea" id="IiO-08-o5W"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="BO8-qI-PhW" firstAttribute="bottom" secondItem="IiO-08-o5W" secondAttribute="bottom" id="2Uk-Zd-jub"/>
                             <constraint firstItem="npT-CQ-dc3" firstAttribute="top" secondItem="IiO-08-o5W" secondAttribute="top" constant="40" id="FcZ-l6-DZT"/>
+                            <constraint firstItem="BO8-qI-PhW" firstAttribute="leading" secondItem="IiO-08-o5W" secondAttribute="leading" constant="20" id="KVv-5P-DCG"/>
                             <constraint firstItem="npT-CQ-dc3" firstAttribute="leading" secondItem="IiO-08-o5W" secondAttribute="leading" constant="40" id="OzR-TJ-Sah"/>
                             <constraint firstItem="IiO-08-o5W" firstAttribute="trailing" secondItem="npT-CQ-dc3" secondAttribute="trailing" constant="40" id="vSW-Nk-E99"/>
                         </constraints>
@@ -232,10 +234,9 @@
                                     <constraint firstItem="0i3-Jr-paX" firstAttribute="height" secondItem="jMh-gI-oyf" secondAttribute="height" id="yhb-EZ-CLQ"/>
                                 </constraints>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cG6-Wp-6Fk">
-                                <rect key="frame" x="187" y="531" width="40" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="BACK"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cG6-Wp-6Fk">
+                                <rect key="frame" x="20" y="712" width="96" height="96"/>
+                                <state key="normal" image="backButton"/>
                                 <connections>
                                     <action selector="backButtonSegue:" destination="lHO-0N-Dri" eventType="touchUpInside" id="IOf-WH-kTc"/>
                                 </connections>
@@ -244,8 +245,10 @@
                         <viewLayoutGuide key="safeArea" id="aiA-ga-K8i"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="cG6-Wp-6Fk" firstAttribute="leading" secondItem="aiA-ga-K8i" secondAttribute="leading" constant="20" id="3O0-U8-dfu"/>
                             <constraint firstItem="n8W-88-9ij" firstAttribute="leading" secondItem="aiA-ga-K8i" secondAttribute="leading" constant="40" id="8nH-uY-zA5"/>
                             <constraint firstItem="aiA-ga-K8i" firstAttribute="trailing" secondItem="n8W-88-9ij" secondAttribute="trailing" constant="40" id="V3c-jR-537"/>
+                            <constraint firstItem="cG6-Wp-6Fk" firstAttribute="bottom" secondItem="aiA-ga-K8i" secondAttribute="bottom" id="bmn-9c-lTN"/>
                             <constraint firstItem="n8W-88-9ij" firstAttribute="top" secondItem="aiA-ga-K8i" secondAttribute="top" constant="40" id="gdz-Fm-ZdW"/>
                         </constraints>
                     </view>
@@ -269,8 +272,21 @@
                     <view key="view" contentMode="scaleToFill" id="7iZ-y1-VKA">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nNF-e2-RIS">
+                                <rect key="frame" x="20" y="766" width="96" height="96"/>
+                                <state key="normal" image="backButton"/>
+                                <connections>
+                                    <action selector="backToHome:" destination="RF9-I3-g1U" eventType="touchUpInside" id="fJY-QK-766"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="P9g-aY-ncV"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="nNF-e2-RIS" firstAttribute="leading" secondItem="P9g-aY-ncV" secondAttribute="leading" constant="20" id="Bxe-f8-T9m"/>
+                            <constraint firstItem="nNF-e2-RIS" firstAttribute="bottom" secondItem="P9g-aY-ncV" secondAttribute="bottom" id="LtE-SO-mcL"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZEc-cf-5qZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -285,17 +301,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="yGs-DU-t1m">
-                                <rect key="frame" x="20" y="94" width="374" height="634"/>
-                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jto-qQ-vsN">
+                                <rect key="frame" x="20" y="712" width="96" height="96"/>
+                                <state key="normal" image="backButton"/>
+                                <connections>
+                                    <action selector="backToHome:" destination="fu2-Lm-4B5" eventType="touchUpInside" id="TAL-YE-k3I"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="phu-rl-GFP"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="phu-rl-GFP" firstAttribute="bottom" secondItem="yGs-DU-t1m" secondAttribute="bottom" constant="80" id="Axq-AN-XgM"/>
-                            <constraint firstItem="yGs-DU-t1m" firstAttribute="leading" secondItem="phu-rl-GFP" secondAttribute="leading" constant="20" id="Z5d-Yn-YpZ"/>
-                            <constraint firstItem="phu-rl-GFP" firstAttribute="trailing" secondItem="yGs-DU-t1m" secondAttribute="trailing" constant="20" id="oBK-rs-0jw"/>
-                            <constraint firstItem="yGs-DU-t1m" firstAttribute="top" secondItem="phu-rl-GFP" secondAttribute="top" constant="94" id="rgQ-T9-r64"/>
+                            <constraint firstItem="Jto-qQ-vsN" firstAttribute="leading" secondItem="phu-rl-GFP" secondAttribute="leading" constant="20" id="53k-Se-nU4"/>
+                            <constraint firstItem="Jto-qQ-vsN" firstAttribute="bottom" secondItem="phu-rl-GFP" secondAttribute="bottom" id="lAM-FB-T1P"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="62F-ZC-7pa"/>
@@ -307,6 +325,7 @@
     </scenes>
     <resources>
         <image name="YeOrNayLogo" width="200" height="200"/>
+        <image name="backButton" width="96" height="96"/>
         <image name="kanyeCover" width="800" height="1442"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
