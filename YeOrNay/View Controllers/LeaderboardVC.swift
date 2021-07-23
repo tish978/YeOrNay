@@ -160,22 +160,16 @@ class LeaderboardVC: UIViewController {
     
     func getUserScore(){
         let user = Auth.auth().currentUser
-        if let user = user {
-            let uid = user.uid
-            let score = user.metadata
-            print("METADATA: \(score)")
-            
-            let ref = db.collection("users").document(Auth.auth().currentUser!.uid)
-            print("REF: \(ref)")
-            
-            ref.getDocument(){ (querySnapshot, err) in
-                if let err = err {
-                    print("Error getting documents: \(err)")
-                } else {
-                    var yourScore: Int = querySnapshot?.get("highScore") as! Int
-                    var yourScoreString: String = "\(yourScore)" as! String
-                    self.yourScore.text = yourScoreString
-                    print("Value of score is: \(yourScoreString)")
+               
+        let reference = db.collection("users").whereField("email", isEqualTo: user?.email)
+        
+        reference.getDocuments(){ (querysnapshot, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+                for document in querysnapshot!.documents{
+                    print("USER'S SCORE IS: \(document.get("highScore"))")
+                    self.yourScore.text = " \(document.get("highScore") as! Int)"
                 }
             }
         }

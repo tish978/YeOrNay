@@ -19,6 +19,25 @@ class gameBoardVC: UIViewController {
     var icConfetti: ICConfetti!
     //icConfetti = ICConfetti()
     
+    let db = Firestore.firestore()
+    
+    @IBAction func getUserData(_ sender: Any) {
+        let user = Auth.auth().currentUser
+               
+        let reference = db.collection("users").whereField("email", isEqualTo: user?.email)
+        
+        reference.getDocuments(){ (querysnapshot, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+                for document in querysnapshot!.documents{
+                    print("USER'S DATA IS: \(document.data())")
+                }
+            }
+        }
+    }
+    
+    
     
     @IBAction func backToHome(_ sender: Any) {
         print("back button segue triggered!")

@@ -133,7 +133,7 @@ class AccountCreateViewController: UIViewController {
                     // User was created succesfully, now store the first and last name
                     let db = Firestore.firestore()
                     
-                    db.collection("users").addDocument(data: ["firstname":firstName, "lastname":lastName, "uid":result!.user.uid, "highScore":0]) { (error) in
+                    db.collection("users").addDocument(data: ["firstname":firstName, "lastname":lastName, "uid":result!.user.uid, "highScore":0, "email":email, "password":password]) { (error) in
                         
                         if error != nil{
                             self.showError("User data couldn't be saved")
@@ -142,8 +142,11 @@ class AccountCreateViewController: UIViewController {
                     }
                     print("3")
                     // Transtition to home screen
-                    self.transitionToHome()
-                    
+                    //self.transitionToHome()
+                    let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+                    let nextViewController = storyBoard.instantiateViewController(withIdentifier: "gameBoardVC") as! gameBoardVC
+                    nextViewController.modalPresentationStyle = .fullScreen
+                    self.present(nextViewController, animated:true, completion:nil)
                 }
                 
             }
