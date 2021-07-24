@@ -206,7 +206,7 @@ class gameBoardVC: UIViewController {
     }()
     
     let cardTwoLbl: UILabel = {
-        let lbl = UILabel(frame: CGRect(x: 75, y: 100, width: 275, height: 200))
+        let lbl = UILabel(frame: CGRect(x: 75, y: 100, width: 350, height: 200))
         lbl.translatesAutoresizingMaskIntoConstraints = false
         lbl.center = CGPoint(x: 300, y: 285)
         lbl.textAlignment = .center
@@ -214,20 +214,20 @@ class gameBoardVC: UIViewController {
         lbl.font = UIFont(name: "Aquino-Demo", size: 12)
         lbl.numberOfLines = 6
         lbl.lineBreakMode = .byWordWrapping
-        lbl.textColor = #colorLiteral(red: 0, green: 0.9768045545, blue: 0, alpha: 1)
+        lbl.textColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         lbl.isHidden = true
         return lbl
     }()
     
     let cardTwo: UIButton = {
-        let v = UIButton(frame: CGRect(x: 0, y: 100, width: 350, height: 250))
+        let v = UIButton(frame: CGRect(x: 0, y: 100, width: 400, height: 250))
         v.translatesAutoresizingMaskIntoConstraints = false
         v.layer.borderColor = #colorLiteral(red: 0.9764705882, green: 0.9647058824, blue: 0.9764705882, alpha: 1)
         v.layer.borderWidth = 2
         let gradient = CAGradientLayer()
         gradient.colors = [UIColor.blue.cgColor, UIColor.systemGreen.cgColor]
         gradient.startPoint = CGPoint(x: 0.0, y: 0.0)
-        gradient.endPoint = CGPoint(x: 0.75, y: 0.25)
+        gradient.endPoint = CGPoint(x: 0.75, y: 0.15)
         gradient.frame = v.bounds
         v.layer.addSublayer(gradient)
         v.clipsToBounds = true
@@ -246,13 +246,13 @@ class gameBoardVC: UIViewController {
         lbl.font = UIFont(name: "Aquino-Demo", size: 12)
         lbl.numberOfLines = 6
         lbl.lineBreakMode = .byWordWrapping
-        lbl.textColor = #colorLiteral(red: 0, green: 0.9768045545, blue: 0, alpha: 1)
+        lbl.textColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         lbl.isHidden = true
         return lbl
     }()
     
     let cardThree: UIButton = {
-        let v = UIButton(frame: CGRect(x: 0, y: 100, width: 200, height: 250))
+        let v = UIButton(frame: CGRect(x: 0, y: 100, width: 400, height: 250))
         v.translatesAutoresizingMaskIntoConstraints = false
         v.layer.borderColor = #colorLiteral(red: 0.9764705882, green: 0.9647058824, blue: 0.9764705882, alpha: 1)
         v.layer.borderWidth = 2
@@ -344,6 +344,40 @@ class gameBoardVC: UIViewController {
         return lbl
     }()
     
+    
+    
+    let leaderButton: UIButton = {
+        let v = UIButton(frame: CGRect(x: 0, y: 50, width: 400, height: 200))
+        v.translatesAutoresizingMaskIntoConstraints = false
+        v.layer.borderColor = #colorLiteral(red: 0.06274510175, green: 0, blue: 0.1921568662, alpha: 1)
+        v.layer.borderWidth = 2
+        let gradient = CAGradientLayer()
+        gradient.colors = [UIColor.black.cgColor, UIColor.systemPurple.cgColor]
+        gradient.startPoint = CGPoint(x: 0.0, y: 0.0)
+        gradient.endPoint = CGPoint(x: 1.0, y: 1.0)
+        gradient.frame = v.bounds
+        v.layer.addSublayer(gradient)
+        v.clipsToBounds = true
+        v.layer.cornerRadius = 40
+        v.isHidden = false
+        v.isUserInteractionEnabled = true
+        //v.addTarget(self, action: #selector(segueToBoard), for: .touchUpInside)
+        return v
+    }()
+    
+    let leaderButtonLbl: UILabel = {
+        let lbl = UILabel(frame: CGRect(x: 75, y: 100, width: 320, height: 200))
+        lbl.translatesAutoresizingMaskIntoConstraints = false
+        lbl.center = CGPoint(x: 300, y: 285)
+        lbl.textAlignment = .center
+        lbl.text = "LEADERBOARD"
+        lbl.font = UIFont(name: "Aquino-Demo", size: 25)
+        lbl.textColor = #colorLiteral(red: 0, green: 0.9768045545, blue: 0, alpha: 1)
+        return lbl
+    }()
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         icConfetti = ICConfetti()
@@ -366,6 +400,11 @@ class gameBoardVC: UIViewController {
         view.addSubview(yeLbl)
         view.addSubview(nayLbl)
         view.addSubview(scoreLbl)
+        view.addSubview(leaderButton)
+        view.addSubview(leaderButtonLbl)
+        
+        
+        
         yeButton.addTarget(self, action: #selector(checkAnswer), for: .touchUpInside)
         nayButton.addTarget(self, action: #selector(checkAnswer2), for: .touchUpInside)
         
@@ -425,10 +464,10 @@ class gameBoardVC: UIViewController {
         view.addSubview(cardThreeLbl)
         
         cardTwo.topAnchor.constraint(equalTo: view.topAnchor, constant: 250).isActive = true
-        cardTwo.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20).isActive = true
-        cardTwo.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -20).isActive = true
+        cardTwo.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 40).isActive = true
+        cardTwo.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -40).isActive = true
         cardTwo.heightAnchor.constraint(equalToConstant: 250).isActive = true
-        cardTwo.widthAnchor.constraint(equalToConstant: 325).isActive = true
+        cardTwo.widthAnchor.constraint(equalToConstant: 400).isActive = true
 
         cardTwoLbl.topAnchor.constraint(equalTo: view.topAnchor, constant: 250).isActive = true
         cardTwoLbl.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 30).isActive = true
@@ -438,21 +477,49 @@ class gameBoardVC: UIViewController {
         
         
         cardThree.topAnchor.constraint(equalTo: view.topAnchor, constant: 250).isActive = true
-        cardThree.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 30).isActive = true
-        cardThree.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -30).isActive = true
+        cardThree.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 40).isActive = true
+        cardThree.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -40).isActive = true
         cardThree.heightAnchor.constraint(equalToConstant: 250).isActive = true
-        cardThree.widthAnchor.constraint(equalToConstant: 250).isActive = true
+        cardThree.widthAnchor.constraint(equalToConstant: 325).isActive = true
 
         cardThreeLbl.topAnchor.constraint(equalTo: view.topAnchor, constant: 250).isActive = true
         cardThreeLbl.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 30).isActive = true
         cardThreeLbl.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -30).isActive = true
         cardThreeLbl.heightAnchor.constraint(equalToConstant: 250).isActive = true
-        cardThreeLbl.widthAnchor.constraint(equalToConstant: 250).isActive = true
+        cardThreeLbl.widthAnchor.constraint(equalToConstant: 325).isActive = true
+        
+        
+        leaderButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 710).isActive = true
+        leaderButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 75).isActive = true
+        leaderButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -75).isActive = true
+        leaderButton.bottomAnchor.constraint(equalTo: view.topAnchor, constant: 785).isActive = true
+        leaderButton.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        leaderButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        leaderButton.heightAnchor.constraint(equalToConstant: 20).isActive = true
+        leaderButton.widthAnchor.constraint(equalToConstant: 225).isActive = true
+        
+        
+        leaderButtonLbl.topAnchor.constraint(equalTo: view.topAnchor, constant: 730).isActive = true
+        leaderButtonLbl.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 115).isActive = true
+        
+        leaderButton.addTarget(self, action: #selector(segueToBoard), for: .touchUpInside)
         
         updateScore(lbl: scoreLbl)
         
         checkScore()
     }
+    
+    
+    
+    @objc private func segueToBoard(){
+        print("Performing segue!")
+        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "LeaderboardVC") as! LeaderboardVC
+        nextViewController.modalPresentationStyle = .fullScreen
+        self.present(nextViewController, animated:true, completion:nil)
+    }
+    
+    
     
     @objc func playerItemDidReachEnd(){
         videoPlayer!.seek(to: CMTime.zero)
@@ -524,30 +591,19 @@ class gameBoardVC: UIViewController {
     
     
     func checkScore(){
-        
-        //var tempScore = 0
-        
-        print("1")
-        
-        //var icConfetti: ICConfetti!
-        
         let db = Firestore.firestore()
-        
-        print("2")
-        
-        let ref = db.collection("users").whereField("highScore", isGreaterThanOrEqualTo: 0)
+
+        let user = Auth.auth().currentUser
+        let ref = db.collection("users").whereField("email", isEqualTo: user?.email)
             
         ref.getDocuments(){ (querysnapshot, err) in
-            print("3")
             if let err = err {
-                print("4")
                 print("Error getting documents: \(err)")
             } else {
                 for document in querysnapshot!.documents{
                     print("Current value of self.score i: \(self.score)")
                     print("Currnt value of DB highScore is: \(document.get("highScore") as! Int)")
                     if self.score > document.get("highScore") as! Int{
-                        // update field to high score!
                         document.reference.updateData([
                             "highScore":self.score
                         ])

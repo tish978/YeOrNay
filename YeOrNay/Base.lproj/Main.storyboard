@@ -283,21 +283,12 @@
                                     <action selector="backToHome:" destination="RF9-I3-g1U" eventType="touchUpInside" id="fJY-QK-766"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rc8-GR-ZtP">
-                                <rect key="frame" x="152" y="704" width="110" height="30"/>
-                                <state key="normal" title="check user data"/>
-                                <connections>
-                                    <action selector="getUserData:" destination="RF9-I3-g1U" eventType="touchUpInside" id="ZU7-vX-DLV"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="P9g-aY-ncV"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="nNF-e2-RIS" firstAttribute="leading" secondItem="P9g-aY-ncV" secondAttribute="leading" constant="20" id="Bxe-f8-T9m"/>
-                            <constraint firstItem="P9g-aY-ncV" firstAttribute="bottom" secondItem="rc8-GR-ZtP" secondAttribute="bottom" constant="128" id="IrL-1u-zFx"/>
                             <constraint firstItem="nNF-e2-RIS" firstAttribute="bottom" secondItem="P9g-aY-ncV" secondAttribute="bottom" id="LtE-SO-mcL"/>
-                            <constraint firstItem="rc8-GR-ZtP" firstAttribute="leading" secondItem="P9g-aY-ncV" secondAttribute="leading" constant="152" id="NZo-8E-vvy"/>
                         </constraints>
                     </view>
                 </viewController>
