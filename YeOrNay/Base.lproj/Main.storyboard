@@ -26,14 +26,6 @@
                                     <constraint firstAttribute="width" constant="240" id="kS2-Zi-y7F"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MgA-Xd-1cy">
-                                <rect key="frame" x="184" y="382" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <segue destination="fu2-Lm-4B5" kind="show" id="KWY-40-qpj"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -301,11 +293,11 @@
             <objects>
                 <viewController storyboardIdentifier="LeaderboardVC" id="fu2-Lm-4B5" customClass="LeaderboardVC" customModule="YeOrNay" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="HfQ-rV-uam">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jto-qQ-vsN">
-                                <rect key="frame" x="20" y="712" width="96" height="96"/>
+                                <rect key="frame" x="20" y="766" width="96" height="96"/>
                                 <state key="normal" image="backButton"/>
                                 <connections>
                                     <action selector="backToHome:" destination="fu2-Lm-4B5" eventType="touchUpInside" id="TAL-YE-k3I"/>
