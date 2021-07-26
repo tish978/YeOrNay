@@ -384,6 +384,7 @@ class gameBoardVC: UIViewController {
         //icConfetti.rain(in: self.view)
         
         playBackgroundVideo()
+        playMusic()
         
         printQuote(label: cardOneLbl)
         
@@ -513,6 +514,7 @@ class gameBoardVC: UIViewController {
     
     @objc private func segueToBoard(){
         print("Performing segue!")
+        player?.stop()
         let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
         let nextViewController = storyBoard.instantiateViewController(withIdentifier: "LeaderboardVC") as! LeaderboardVC
         nextViewController.modalPresentationStyle = .fullScreen
@@ -662,6 +664,42 @@ class gameBoardVC: UIViewController {
         label.text = text
         print("Just set \(text) as the text value for \(label)")
     }
+    
+    
+    func playMusic(){
+            if let player = player, player.isPlaying{
+                // stop playback
+                player.stop()
+            } else {
+                // setup player and play
+                let urlString = Bundle.main.path(forResource: "stretchMyHands", ofType: "mp3")
+                
+                do {
+                    try AVAudioSession.sharedInstance().setMode(.default)
+                    try AVAudioSession.sharedInstance().setActive(true, options: .notifyOthersOnDeactivation)
+                    
+                    guard let urlString = urlString else{
+                        return
+                    }
+                    
+                    player = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: urlString))
+                    
+                    guard let player = player else{
+                        return
+                    }
+                    
+                    //if isPlaying == false{
+                        player.play()
+                    //}
+                
+                } catch {
+                    print("something went wrong")
+                }
+            }
+            
+            print("Attempting to animate stroke")
+        }
+    
     
     func printQuote(label: UILabel){
         var element: String = kanyeQuotes.randomElement()!

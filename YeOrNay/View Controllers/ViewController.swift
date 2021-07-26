@@ -11,6 +11,7 @@ import AVFoundation
 class ViewController: UIViewController {
 
     var player: AVAudioPlayer?
+    var isPlaying: Bool = false
     
     let continueBtn: UIButton = {
         let v = UIButton(frame: CGRect(x: 0, y: 100, width: 320, height: 200))
@@ -42,10 +43,17 @@ class ViewController: UIViewController {
         return lbl
     }()
     
+    override func viewDidAppear(_ animated: Bool) {
+        playMusic()
+    }
+    
     
     override func viewDidLoad() {
+        //player?.stop()
+        
         super.viewDidLoad()
-        playMusic()
+        
+        //playMusic()
         
         continueBtn.addTarget(self, action: #selector(segueToBoard), for: .touchUpInside)
         view.addSubview(continueBtn)
@@ -67,9 +75,9 @@ class ViewController: UIViewController {
     }
 
     @objc private func segueToBoard(){
-        print("Performing segue!")
+        //print("Performing segue!")
        // self.performSegue(withIdentifier: "TMBoard", sender: nil)
-        //player?.stop()
+        player?.stop()
         let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
 
         let nextViewController = storyBoard.instantiateViewController(withIdentifier: "AccountViewController") as! AccountViewController
@@ -81,6 +89,7 @@ class ViewController: UIViewController {
     func playMusic(){
             if let player = player, player.isPlaying{
                 // stop playback
+                player.stop()
             } else {
                 // setup player and play
                 let urlString = Bundle.main.path(forResource: "stretchMyHands", ofType: "mp3")
@@ -99,7 +108,10 @@ class ViewController: UIViewController {
                         return
                     }
                     
-                   // player.play()
+                    //if isPlaying == false{
+                        player.play()
+                        isPlaying = true
+                    //}
                 
                 } catch {
                     print("something went wrong")
