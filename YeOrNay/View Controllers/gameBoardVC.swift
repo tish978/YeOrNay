@@ -593,23 +593,29 @@ class gameBoardVC: UIViewController {
     
     
     func checkScore(){
-        let db = Firestore.firestore()
+        
 
         let user = Auth.auth().currentUser
-        let ref = db.collection("users").whereField("email", isEqualTo: user?.email)
-            
+        print("checkScore emailString check: \(emailString)")
+        //let ref = db.collection("users").whereField("email", isEqualTo: user?.email)
+        let ref = db.collection("users").whereField("email", isEqualTo: emailString)
+        
+        
+        
+        
         ref.getDocuments(){ (querysnapshot, err) in
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {
                 for document in querysnapshot!.documents{
+                    print("Currently \(querysnapshot?.count) from query")
                     print("Current value of self.score i: \(self.score)")
-                    print("Currnt value of DB highScore is: \(document.get("highScore") as! Int)")
-                    if self.score > document.get("highScore") as! Int{
+                    //print("Currnt value of DB highScore is: \(document.get("highScore") as! Int)")
+                    if document.get("highScore") == nil || self.score > document.get("highScore") as! Int{
                         document.reference.updateData([
                             "highScore":self.score
                         ])
-                        print("Updated highScore in DB")
+                        print("Updated highScore in DB for \(document.get("firstname")) to \(self.score)")
                         self.icConfetti.rain(in: super.view)
                     }
                 }
@@ -689,7 +695,7 @@ class gameBoardVC: UIViewController {
                     }
                     
                     //if isPlaying == false{
-                        player.play()
+                        //player.play()
                     //}
                 
                 } catch {

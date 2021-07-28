@@ -109,7 +109,7 @@ class ViewController: UIViewController {
                     }
                     
                     //if isPlaying == false{
-                        player.play()
+                        //player.play()
                         isPlaying = true
                     //}
                 
