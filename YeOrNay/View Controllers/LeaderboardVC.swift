@@ -159,9 +159,9 @@ class LeaderboardVC: UIViewController {
 
     
     func getUserScore(){
-        let user = Auth.auth().currentUser
-               
-        let reference = db.collection("users").whereField("email", isEqualTo: user?.email)
+        //let user = Auth.auth().currentUser
+        print("Current value of getUserScore emailstring is: \(emailString)")
+        let reference = db.collection("users").whereField("email", isEqualTo: emailString)
         
         reference.getDocuments(){ (querysnapshot, err) in
             if let err = err {

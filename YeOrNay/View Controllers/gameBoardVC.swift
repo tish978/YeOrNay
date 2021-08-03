@@ -18,6 +18,8 @@ class gameBoardVC: UIViewController {
 
     var icConfetti: ICConfetti!
     //icConfetti = ICConfetti()
+    var randomQuote: String = ""
+    var runCount: Int = 0
     
     let db = Firestore.firestore()
     
@@ -386,7 +388,7 @@ class gameBoardVC: UIViewController {
         playBackgroundVideo()
         playMusic()
         
-        printQuote(label: cardOneLbl)
+        
         
         
         cardOne.addTarget(self, action: #selector(cardOneFlip), for: .touchUpInside)
@@ -505,6 +507,15 @@ class gameBoardVC: UIViewController {
         
         leaderButton.addTarget(self, action: #selector(segueToBoard), for: .touchUpInside)
         
+        
+        printQuote(label: cardOneLbl)
+        
+        if cardOneLbl.text?.isEmpty == true{
+            print("Card one label is empty... re-running!")
+            printQuote(label: cardOneLbl)
+        }
+        
+        
         updateScore(lbl: scoreLbl)
         
         checkScore()
@@ -550,6 +561,8 @@ class gameBoardVC: UIViewController {
             cardTwoLbl.isHidden = false
             cardTwo.isHidden = false
             isNotYe = false
+            yeButton.isEnabled = false
+            nayButton.isEnabled = false
         } else {
             if score > 0 {
                 score = 0
@@ -557,6 +570,8 @@ class gameBoardVC: UIViewController {
             }
             isNotYe = true
             print("INCORRECT ANSWER")
+            yeButton.isEnabled = false
+            nayButton.isEnabled = false
             //scoreLbl.text = "INCORRECT"
             cardThree.isHidden = false
             cardThreeLbl.isHidden = false
@@ -565,6 +580,8 @@ class gameBoardVC: UIViewController {
     
     @objc private func checkAnswer2(){
         if isYe == false{
+            yeButton.isEnabled = false
+            nayButton.isEnabled = false
             score += 10
             scoreLbl.text = "SCORE: \(score)"
             cardTwo.isHidden = false
@@ -576,6 +593,8 @@ class gameBoardVC: UIViewController {
                 scoreLbl.text = "SCORE: \(score)"
             }
             print("INCORRECT ANSWER")
+            yeButton.isEnabled = false
+            nayButton.isEnabled = false
             //scoreLbl.text = "INCORRECT"
             cardThree.isHidden = false
             cardThreeLbl.isHidden = false
@@ -653,6 +672,7 @@ class gameBoardVC: UIViewController {
             //print(json.content)
            // print("Quote to be sent: \(result?.content)")
             self.toBeReturned = (result?.content as String?)!
+            self.randomQuote = (result?.content as String?)!
             print("Quote to be sent: \(self.toBeReturned)")
             self.decidingQuotes[1] = self.toBeReturned
             
@@ -708,13 +728,29 @@ class gameBoardVC: UIViewController {
     
     
     func printQuote(label: UILabel){
+        yeButton.isEnabled = true
+        nayButton.isEnabled = true
+        
+        
         var element: String = kanyeQuotes.randomElement()!
+        //var element1: String = self.randomQuote
         print("Selected Kanye quote to be printed: \(element)")
         decidingQuotes[0] = element
+        //print("Value of randomQuote is: \(randomQuote)")
+        //print("Value of element1 is: \(element1)")
+        //decidingQuotes[1] = randomQuote
+        
+        
         
         //isYe = true
         generateRandomQuote()
         print("Value of decidingQuotes[0] is: \(decidingQuotes[0])")
+        
+        if runCount == 0{
+            print("Run count is zero!")
+            decidingQuotes[1] = decidingQuotes[0]
+        }
+        
         print("Value of decidingQuotes[1] is: \(decidingQuotes[1])")
         
         label.text = decidingQuotes.randomElement()
@@ -727,6 +763,9 @@ class gameBoardVC: UIViewController {
         print("Ultimate quote of label is: \(label.text)")
         
         print("decidingQuotes count is: \(decidingQuotes.count)")
+        
+        runCount+=1
+        print("New runCount is: \(runCount)")
     }
     
     @objc private func cardOneFlip(){
@@ -756,9 +795,12 @@ class gameBoardVC: UIViewController {
     
     @objc private func cardThreeFlip(){
         print("cardFlipped!")
+        print("buttons disabled")
         printQuote(label: cardOneLbl)
         cardThree.isHidden = true
         cardThreeLbl.isHidden = true
+        yeButton.isEnabled = false
+        nayButton.isEnabled = false
         scoreLbl.text = "0"
         scoreLbl.text = "SCORE: \(score)"
     }
