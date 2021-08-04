@@ -41,6 +41,16 @@ class LeaderboardVC: UIViewController {
         let lbl = UILabel(frame: CGRect(x: 75, y: 100, width: 275, height: 200))
         lbl.translatesAutoresizingMaskIntoConstraints = false
         lbl.text = "INSERT TEXT"
+        lbl.textAlignment = .left
+        lbl.font = UIFont(name: "Aquino-Demo", size: 18)
+        return lbl
+    }()
+    
+    let scoreField1: UILabel = {
+        let lbl = UILabel(frame: CGRect(x: 75, y: 100, width: 275, height: 200))
+        lbl.translatesAutoresizingMaskIntoConstraints = false
+        lbl.text = "INSERT TEXT"
+        lbl.textAlignment = .left
         lbl.font = UIFont(name: "Aquino-Demo", size: 18)
         return lbl
     }()
@@ -49,6 +59,16 @@ class LeaderboardVC: UIViewController {
         let lbl = UILabel(frame: CGRect(x: 75, y: 100, width: 275, height: 200))
         lbl.translatesAutoresizingMaskIntoConstraints = false
         lbl.text = "INSERT TEXT"
+        lbl.textAlignment = .left
+        lbl.font = UIFont(name: "Aquino-Demo", size: 18)
+        return lbl
+    }()
+    
+    let scoreField2: UILabel = {
+        let lbl = UILabel(frame: CGRect(x: 75, y: 100, width: 275, height: 200))
+        lbl.translatesAutoresizingMaskIntoConstraints = false
+        lbl.text = "INSERT TEXT"
+        lbl.textAlignment = .left
         lbl.font = UIFont(name: "Aquino-Demo", size: 18)
         return lbl
     }()
@@ -58,16 +78,37 @@ class LeaderboardVC: UIViewController {
         let lbl = UILabel(frame: CGRect(x: 75, y: 100, width: 275, height: 200))
         lbl.translatesAutoresizingMaskIntoConstraints = false
         lbl.text = "INSERT TEXT"
+        lbl.textAlignment = .left
         lbl.font = UIFont(name: "Aquino-Demo", size: 18)
         return lbl
     }()
     
+    
+    let scoreField3: UILabel = {
+        let lbl = UILabel(frame: CGRect(x: 75, y: 100, width: 275, height: 200))
+        lbl.translatesAutoresizingMaskIntoConstraints = false
+        lbl.text = "INSERT TEXT"
+        lbl.textAlignment = .left
+        lbl.font = UIFont(name: "Aquino-Demo", size: 18)
+        return lbl
+    }()
     
     
     let textField4: UILabel = {
         let lbl = UILabel(frame: CGRect(x: 75, y: 100, width: 275, height: 200))
         lbl.translatesAutoresizingMaskIntoConstraints = false
         lbl.text = "INSERT TEXT"
+        lbl.textAlignment = .left
+        lbl.font = UIFont(name: "Aquino-Demo", size: 18)
+        return lbl
+    }()
+    
+    
+    let scoreField4: UILabel = {
+        let lbl = UILabel(frame: CGRect(x: 75, y: 100, width: 275, height: 200))
+        lbl.translatesAutoresizingMaskIntoConstraints = false
+        lbl.text = "INSERT TEXT"
+        lbl.textAlignment = .left
         lbl.font = UIFont(name: "Aquino-Demo", size: 18)
         return lbl
     }()
@@ -116,9 +157,13 @@ class LeaderboardVC: UIViewController {
         view.addSubview(leaderLabel)
         view.addSubview(scoreLabel)
         view.addSubview(textField1)
+        view.addSubview(scoreField1)
         view.addSubview(textField2)
+        view.addSubview(scoreField2)
         view.addSubview(textField3)
+        view.addSubview(scoreField3)
         view.addSubview(textField4)
+        view.addSubview(scoreField4)
         view.addSubview(yourScoreLbl)
         view.addSubview(yourScore)
         
@@ -137,15 +182,33 @@ class LeaderboardVC: UIViewController {
         textField1.topAnchor.constraint(equalTo: view.topAnchor, constant: 200).isActive = true
         textField1.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 125).isActive = true
         
+        
+        scoreField1.topAnchor.constraint(equalTo: view.topAnchor, constant: 200).isActive = true
+        scoreField1.leftAnchor.constraint(equalTo: textField1.leftAnchor, constant: 100).isActive = true
+        
+        
         textField2.topAnchor.constraint(equalTo: view.topAnchor, constant: 225).isActive = true
         textField2.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 125).isActive = true
+        
+        
+        scoreField2.topAnchor.constraint(equalTo: view.topAnchor, constant: 225).isActive = true
+        scoreField2.leftAnchor.constraint(equalTo: textField2.leftAnchor, constant: 100).isActive = true
+        
         
         textField3.topAnchor.constraint(equalTo: view.topAnchor, constant: 250).isActive = true
         textField3.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 125).isActive = true
         
         
+        scoreField3.topAnchor.constraint(equalTo: view.topAnchor, constant: 250).isActive = true
+        scoreField3.leftAnchor.constraint(equalTo: textField3.leftAnchor, constant: 100).isActive = true
+        
+        
         textField4.topAnchor.constraint(equalTo: view.topAnchor, constant: 275).isActive = true
         textField4.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 125).isActive = true
+        
+        
+        scoreField4.topAnchor.constraint(equalTo: view.topAnchor, constant: 275).isActive = true
+        scoreField4.leftAnchor.constraint(equalTo: textField4.leftAnchor, constant: 100).isActive = true
         
         
         yourScoreLbl.topAnchor.constraint(equalTo: view.topAnchor, constant: 350).isActive = true
@@ -188,21 +251,27 @@ class LeaderboardVC: UIViewController {
             } else {
                 for document in querysnapshot!.documents{
                     var stringToAppend = "\(document.get("firstname") as! String)           \(document.get("highScore") as! Int) "
+                    var nameToAppend = document.get("firstname") as! String
+                    var scoreToAppend = "\(document.get("highScore") as! Int)"
                     self.scoreArray.append(stringToAppend)
                    // print("First Name -> \(document.get("firstname") as! String) || Score -> \(document.get("highScore") as! Int)")
                     //print("Final contents of array: \(self.scoreArray)")
                     
                     if intNum == 1 {
-                        self.textField1.text = stringToAppend
+                        self.textField1.text = nameToAppend
+                        self.scoreField1.text = scoreToAppend
                         print("current value of intNum: \(intNum) -> \(self.textField1.text)")
                     } else if intNum == 2{
-                        self.textField2.text = stringToAppend
+                        self.textField2.text = nameToAppend
+                        self.scoreField2.text = scoreToAppend
                         print("current value of intNum: \(intNum) -> \(self.textField2.text)")
                     } else if intNum == 3 {
-                        self.textField3.text = stringToAppend
+                        self.textField3.text = nameToAppend
+                        self.scoreField3.text = scoreToAppend
                         print("current value of intNum: \(intNum) -> \(self.textField3.text)")
                     } else {
-                        self.textField4.text = stringToAppend
+                        self.textField4.text = nameToAppend
+                        self.scoreField4.text = scoreToAppend
                         print("current value of intNum: \(intNum) -> \(self.textField4.text)")
                     }
                     
