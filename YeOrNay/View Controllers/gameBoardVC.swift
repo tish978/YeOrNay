@@ -373,7 +373,9 @@ class gameBoardVC: UIViewController {
         lbl.center = CGPoint(x: 300, y: 285)
         lbl.textAlignment = .center
         lbl.text = "LEADERBOARD"
-        lbl.font = UIFont(name: "Aquino-Demo", size: 25)
+        lbl.numberOfLines = 2
+        lbl.lineBreakMode = .byWordWrapping
+        lbl.font = UIFont(name: "Aquino-Demo", size: 20)
         lbl.textColor = #colorLiteral(red: 0, green: 0.9768045545, blue: 0, alpha: 1)
         return lbl
     }()
@@ -453,9 +455,8 @@ class gameBoardVC: UIViewController {
         nayLbl.heightAnchor.constraint(equalToConstant: 120).isActive = true
         nayLbl.widthAnchor.constraint(equalToConstant: 160).isActive = true
         
-        scoreLbl.topAnchor.constraint(equalTo: yeButton.topAnchor, constant: 150).isActive = true
-        //scoreLbl.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 125).isActive = true
-        //scoreLbl.leftAnchor.constraint(equalTo: yeButton.rightAnchor, constant: -50).isActive = true
+        //scoreLbl.topAnchor.constraint(equalTo: yeButton.topAnchor, constant: 150).isActive = true
+        scoreLbl.topAnchor.constraint(equalTo: yeButton.topAnchor, constant: 100).isActive = true
         scoreLbl.leftAnchor.constraint(equalTo: yeButton.rightAnchor, constant: -45).isActive = true
         scoreLbl.rightAnchor.constraint(equalTo: nayButton.leftAnchor, constant: 40).isActive = true
         scoreLbl.heightAnchor.constraint(equalToConstant: 120).isActive = true
@@ -492,18 +493,27 @@ class gameBoardVC: UIViewController {
         cardThreeLbl.widthAnchor.constraint(equalToConstant: 325).isActive = true
         
         
-        leaderButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 710).isActive = true
-        leaderButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 75).isActive = true
-        leaderButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -75).isActive = true
-        leaderButton.bottomAnchor.constraint(equalTo: view.topAnchor, constant: 785).isActive = true
+        leaderButton.topAnchor.constraint(equalTo: scoreLbl.topAnchor, constant: 90).isActive = true
+        //leaderButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 710).isActive = true
+        //leaderButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 75).isActive = true
+        leaderButton.leftAnchor.constraint(equalTo: yeButton.leftAnchor, constant: 30).isActive = true
+        //leaderButton.leftAnchor.constraint(equalTo: scoreLbl.leftAnchor, constant: -10).isActive = true
+        leaderButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -65).isActive = true
+        //leaderButton.rightAnchor.constraint(equalTo: scoreLbl.rightAnchor, constant: 30).isActive = true
+        //leaderButton.bottomAnchor.constraint(equalTo: view.topAnchor, constant: 785).isActive = true
+        leaderButton.bottomAnchor.constraint(equalTo: scoreLbl.topAnchor, constant: 165).isActive = true
         leaderButton.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
         leaderButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         leaderButton.heightAnchor.constraint(equalToConstant: 20).isActive = true
         leaderButton.widthAnchor.constraint(equalToConstant: 225).isActive = true
         
         
-        leaderButtonLbl.topAnchor.constraint(equalTo: view.topAnchor, constant: 730).isActive = true
-        leaderButtonLbl.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 115).isActive = true
+        //leaderButtonLbl.topAnchor.constraint(equalTo: view.topAnchor, constant: 730).isActive = true
+        leaderButtonLbl.topAnchor.constraint(equalTo: leaderButton.topAnchor, constant: 25).isActive = true
+        //leaderButtonLbl.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 115).isActive = true
+        leaderButtonLbl.leftAnchor.constraint(equalTo: scoreLbl.leftAnchor, constant: -25).isActive = true
+        leaderButtonLbl.rightAnchor.constraint(equalTo: scoreLbl.rightAnchor, constant: 25).isActive = true
+        
         
         leaderButton.addTarget(self, action: #selector(segueToBoard), for: .touchUpInside)
         
