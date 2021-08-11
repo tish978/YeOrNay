@@ -732,7 +732,7 @@ class gameBoardVC: UIViewController {
                     }
                     
                     //if isPlaying == false{
-                        //player.play()
+                        player.play()
                     //}
                 
                 } catch {
@@ -816,8 +816,6 @@ class gameBoardVC: UIViewController {
         printQuote(label: cardOneLbl)
         cardThree.isHidden = true
         cardThreeLbl.isHidden = true
-        yeButton.isEnabled = false
-        nayButton.isEnabled = false
         scoreLbl.text = "0"
         scoreLbl.text = "SCORE: \(score)"
     }

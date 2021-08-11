@@ -139,11 +139,17 @@ class LeaderboardVC: UIViewController {
     //let ref = db.collection("users").whereField("highScore", isGreaterThanOrEqualTo: 0)
     
     @IBAction func backToHome(_ sender: Any) {
-        print("back button segue triggered!")
-        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "ViewController") as! ViewController
-        nextViewController.modalPresentationStyle = .fullScreen
-        self.present(nextViewController, animated:true, completion:nil)
+//        print("back button segue triggered!")
+//        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+//        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "ViewController") as! ViewController
+//        nextViewController.modalPresentationStyle = .fullScreen
+//        self.present(nextViewController, animated:true, completion:nil)
+        if let nav = self.navigationController{
+            nav.popViewController(animated: true)
+        } else {
+            self.dismiss(animated: true, completion: nil)
+        }
+        
     }
     
     
